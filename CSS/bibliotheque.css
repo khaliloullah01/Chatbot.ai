@@ -1,0 +1,361 @@
+/* Styles spécifiques à la page Bibliothèque */
+:root {
+  --couleur-principale: #133ebe;
+  --couleur-secondaire: #f8f9fc;
+  --couleur-texte: #5a5c69;
+  --couleur-border: #e3e6f0;
+  --couleur-licence1: #4e73df;
+  --couleur-licence2: #1cc88a;
+  --couleur-licence3: #36b9cc;
+  --couleur-master1: #f6c23e;
+  --couleur-master2: #e74a3b;
+}
+
+.en-tete-page {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.en-tete-page h1 {
+  color: var(--couleur-principale);
+  font-weight: 700;
+  margin: 0;
+}
+
+.search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-box input {
+  padding: 10px 15px 10px 40px;
+  border: 1px solid var(--couleur-border);
+  border-radius: 20px;
+  font-size: 0.9rem;
+  width: 250px;
+  transition: all 0.3s;
+}
+
+.search-box input:focus {
+  outline: none;
+  border-color: var(--couleur-principale);
+  box-shadow: 0 0 0 0.2rem rgba(19, 62, 190, 0.25);
+}
+
+.search-box i {
+  position: absolute;
+  left: 15px;
+  color: #858796;
+}
+
+.filtres {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+
+.btn-filtre {
+  background: white;
+  border: 1px solid var(--couleur-border);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  color: var(--couleur-texte);
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.btn-filtre:hover, .btn-filtre.active {
+  background: var(--couleur-principale);
+  color: white;
+  border-color: var(--couleur-principale);
+}
+
+.niveaux-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.niveau-section {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.niveau-titre {
+  color: var(--couleur-principale);
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--couleur-border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.niveau-titre.licence1 { color: var(--couleur-licence1); border-bottom-color: var(--couleur-licence1); }
+.niveau-titre.licence2 { color: var(--couleur-licence2); border-bottom-color: var(--couleur-licence2); }
+.niveau-titre.licence3 { color: var(--couleur-licence3); border-bottom-color: var(--couleur-licence3); }
+.niveau-titre.master1 { color: var(--couleur-master1); border-bottom-color: var(--couleur-master1); }
+.niveau-titre.master2 { color: var(--couleur-master2); border-bottom-color: var(--couleur-master2); }
+
+.grille-cours {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.carte-cours {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+  border-top: 4px solid var(--couleur-principale);
+}
+
+.carte-cours:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.carte-cours.licence1 { border-top-color: var(--couleur-licence1); }
+.carte-cours.licence2 { border-top-color: var(--couleur-licence2); }
+.carte-cours.licence3 { border-top-color: var(--couleur-licence3); }
+.carte-cours.master1 { border-top-color: var(--couleur-master1); }
+.carte-cours.master2 { border-top-color: var(--couleur-master2); }
+
+.en-tete-carte {
+  height: 120px;
+  background: var(--couleur-principale);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 2.5rem;
+}
+
+.en-tete-carte.licence1 { background: var(--couleur-licence1); }
+.en-tete-carte.licence2 { background: var(--couleur-licence2); }
+.en-tete-carte.licence3 { background: var(--couleur-licence3); }
+.en-tete-carte.master1 { background: var(--couleur-master1); }
+.en-tete-carte.master2 { background: var(--couleur-master2); }
+
+.corps-carte {
+  padding: 20px;
+}
+
+.corps-carte h3 {
+  margin: 0 0 10px 0;
+  color: var(--couleur-principale);
+  font-size: 1.2rem;
+}
+
+.corps-carte h3.licence1 { color: var(--couleur-licence1); }
+.corps-carte h3.licence2 { color: var(--couleur-licence2); }
+.corps-carte h3.licence3 { color: var(--couleur-licence3); }
+.corps-carte h3.master1 { color: var(--couleur-master1); }
+.corps-carte h3.master2 { color: var(--couleur-master2); }
+
+.description-cours {
+  color: var(--couleur-texte);
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+.details-cours {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: #858796;
+  margin-bottom: 20px;
+}
+
+.actions-cours {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-action {
+  flex: 1;
+  text-align: center;
+  padding: 8px 0;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.3s;
+  text-decoration: none;
+  display: block;
+}
+
+.btn-voir {
+  background: var(--couleur-principale);
+  color: white;
+}
+
+.btn-voir:hover {
+  background: #2e59d9;
+  color: white;
+}
+
+.btn-telecharger {
+  background: #eaecf4;
+  color: var(--couleur-principale);
+}
+
+.btn-telecharger:hover {
+  background: #d8dbe4;
+}
+
+/* Styles pour les boutons adaptés aux couleurs de niveau */
+.btn-voir.licence1 {
+  background: var(--couleur-licence1);
+}
+.btn-voir.licence1:hover {
+  background: #3a5fdc;
+}
+
+.btn-voir.licence2 {
+  background: var(--couleur-licence2);
+}
+.btn-voir.licence2:hover {
+  background: #17a673;
+}
+
+.btn-voir.licence3 {
+  background: var(--couleur-licence3);
+}
+.btn-voir.licence3:hover {
+  background: #2ca0b8;
+}
+
+.btn-voir.master1 {
+  background: var(--couleur-master1);
+}
+.btn-voir.master1:hover {
+  background: #e4b22a;
+}
+
+.btn-voir.master2 {
+  background: var(--couleur-master2);
+}
+.btn-voir.master2:hover {
+  background: #d63a2b;
+}
+
+/* Styles pour les boutons de téléchargement */
+.btn-telecharger.licence1 {
+  color: var(--couleur-licence1);
+  border: 1px solid var(--couleur-licence1);
+}
+.btn-telecharger.licence1:hover {
+  background: var(--couleur-licence1);
+  color: white;
+}
+
+.btn-telecharger.licence2 {
+  color: var(--couleur-licence2);
+  border: 1px solid var(--couleur-licence2);
+}
+.btn-telecharger.licence2:hover {
+  background: var(--couleur-licence2);
+  color: white;
+}
+
+.btn-telecharger.licence3 {
+  color: var(--couleur-licence3);
+  border: 1px solid var(--couleur-licence3);
+}
+.btn-telecharger.licence3:hover {
+  background: var(--couleur-licence3);
+  color: white;
+}
+
+.btn-telecharger.master1 {
+  color: var(--couleur-master1);
+  border: 1px solid var(--couleur-master1);
+}
+.btn-telecharger.master1:hover {
+  background: var(--couleur-master1);
+  color: white;
+}
+
+.btn-telecharger.master2 {
+  color: var(--couleur-master2);
+  border: 1px solid var(--couleur-master2);
+}
+.btn-telecharger.master2:hover {
+  background: var(--couleur-master2);
+  color: white;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .grille-cours {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .en-tete-page {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .search-box {
+    width: 100%;
+  }
+  
+  .search-box input {
+    width: 100%;
+  }
+  
+  .grille-cours {
+    grid-template-columns: 1fr;
+  }
+  
+  .filtres {
+    overflow-x: auto;
+    padding-bottom: 10px;
+    flex-wrap: nowrap;
+  }
+}
+/* Ajouts pour les boutons de filtre colorés */
+.btn-filtre.licence1.active {
+  background: var(--couleur-licence1);
+  border-color: var(--couleur-licence1);
+  color: white;
+}
+
+.btn-filtre.licence2.active {
+  background: var(--couleur-licence2);
+  border-color: var(--couleur-licence2);
+  color: white;
+}
+
+.btn-filtre.licence3.active {
+  background: var(--couleur-licence3);
+  border-color: var(--couleur-licence3);
+  color: white;
+}
+
+.btn-filtre.master1.active {
+  background: var(--couleur-master1);
+  border-color: var(--couleur-master1);
+  color: white;
+}
+
+.btn-filtre.master2.active {
+  background: var(--couleur-master2);
+  border-color: var(--couleur-master2);
+  color: white;
+}

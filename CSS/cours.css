@@ -1,0 +1,358 @@
+    :root {
+      --couleur-principale: #133ebe;
+      --couleur-secondaire: #f8f9fc;
+      --couleur-texte: #5a5c69;
+      --couleur-border: #e3e6f0;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      margin: 0;
+      min-height: 100vh;
+      color: var(--couleur-texte);
+    }
+    
+    /* Bouton menu mobile */
+    .bouton-menu {
+      display: none;
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      z-index: 1000;
+      background: var(--couleur-principale);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Barre latérale */
+    .barre-laterale {
+      width: 280px;
+      background: #ffffff;
+      border-right: 1px solid #e3e6f0;
+      height: 100vh;
+      padding: 25px 20px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 7 0 15px rgba(0, 0, 0, 0.05);
+      z-index: 100;
+      transition: transform 0.3s ease;
+    }
+
+    .entete-barre-laterale {
+      text-align: center;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #e3e6f0;
+      margin-bottom: 20px;
+    }
+
+    .entete-barre-laterale h3 {
+      color: var(--couleur-principale);
+      font-weight: 700;
+      font-size: 1.5rem;
+      margin: 0;
+    }
+
+    .entete-barre-laterale p {
+      color: #858796;
+      font-size: 0.9rem;
+      margin: 5px 0 0;
+    }
+
+    .barre-laterale .btn-nouvelle-conversation {
+      background: var(--couleur-principale);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 12px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      transition: all 0.3s;
+    }
+
+    .barre-laterale .btn-nouvelle-conversation:hover {
+      background: #2e59d9;
+      transform: translateY(-2px);
+    }
+
+    .barre-laterale h4 {
+      font-size: 1rem;
+      margin-bottom: 15px;
+      color: #133ebe;
+      font-weight: 600;
+    }
+
+    .barre-laterale ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .barre-laterale ul li {
+      margin: 12px 0;
+      font-size: 0.95rem;
+      cursor: pointer;
+      padding: 8px 12px;
+      border-radius: 6px;
+      transition: all 0.2s;
+      color: #5a5c69;
+    }
+
+    .barre-laterale ul li:hover {
+      background-color: #eaecf4;
+      color: var(--couleur-principale);
+    }
+
+    .barre-laterale ul li a {
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .barre-laterale ul li a:hover {
+      color: var(--couleur-principale);
+    }
+
+    .profil {
+      padding-top: 20px;
+      border-top: 1px solid #e3e6f0;
+    }
+
+    .contenu-profil {
+      display: flex;
+      align-items: center;
+    }
+
+    .profil img {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 12px;
+      border: 2px solid var(--couleur-principale);
+    }
+
+    .info-profil {
+      flex: 1;
+    }
+
+    .nom-profil {
+      font-weight: 600;
+      color: #5a5c69;
+      margin: 0;
+      font-size: 0.95rem;
+    }
+
+    .email-profil {
+      color: #858796;
+      font-size: 0.8rem;
+      margin: 0;
+    }
+    
+    /* Contenu principal */
+    .contenu-principal {
+      margin-left: 280px;
+      padding: 30px;
+      min-height: 100vh;
+    }
+    
+    .en-tete-page {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 25px;
+    }
+    
+    .en-tete-page h1 {
+      color: var(--couleur-principale);
+      font-weight: 700;
+      margin: 0;
+    }
+    
+    .filtres {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 25px;
+      flex-wrap: wrap;
+    }
+    
+    .btn-filtre {
+      background: white;
+      border: 1px solid var(--couleur-border);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      color: var(--couleur-texte);
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+    
+    .btn-filtre:hover, .btn-filtre.active {
+      background: var(--couleur-principale);
+      color: white;
+      border-color: var(--couleur-principale);
+    }
+    
+    .grille-cours {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 25px;
+    }
+    
+    .carte-cours {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    
+    .carte-cours:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+    
+    .en-tete-carte {
+      height: 120px;
+      background: var(--couleur-principale);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 2.5rem;
+    }
+    
+    .corps-carte {
+      padding: 20px;
+    }
+    
+    .corps-carte h3 {
+      margin: 0 0 10px 0;
+      color: var(--couleur-principale);
+      font-size: 1.2rem;
+    }
+    
+    .description-cours {
+      color: var(--couleur-texte);
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+      line-height: 1.5;
+    }
+    
+    .details-cours {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      color: #858796;
+      margin-bottom: 20px;
+    }
+    
+    .badge-statut {
+      padding: 5px 10px;
+      border-radius: 15px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    
+    .badge-complete {
+      background: #d1e7dd;
+      color: #0f5132;
+    }
+    
+    .badge-progress {
+      background: #fff3cd;
+      color: #856404;
+    }
+    
+    .badge-not-started {
+      background: #e2e3e5;
+      color: #383d41;
+    }
+    
+    .actions-cours {
+      display: flex;
+      gap: 10px;
+    }
+    
+    .btn-action {
+      flex: 1;
+      text-align: center;
+      padding: 8px 0;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: all 0.3s;
+      text-decoration: none;
+      display: block;
+    }
+    
+    .btn-continuer {
+      background: var(--couleur-principale);
+      color: white;
+    }
+    
+    .btn-continuer:hover {
+      background: #2e59d9;
+      color: white;
+    }
+    
+    .btn-details {
+      background: #eaecf4;
+      color: var(--couleur-principale);
+    }
+    
+    .btn-details:hover {
+      background: #d8dbe4;
+    }
+    
+    /* Responsive */
+    @media (max-width: 992px) {
+      .barre-laterale {
+        transform: translateX(-100%);
+      }
+      
+      .barre-laterale.active {
+        transform: translateX(0);
+      }
+      
+      .contenu-principal {
+        margin-left: 0;
+        padding: 20px;
+      }
+      
+      .bouton-menu {
+        display: flex;
+      }
+      
+      .grille-cours {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .en-tete-page {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+      }
+      
+      .filtres {
+        flex-wrap: wrap;
+      }
+      
+      .grille-cours {
+        grid-template-columns: 1fr;
+      }
+    }
