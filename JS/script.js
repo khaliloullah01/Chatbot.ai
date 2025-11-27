@@ -1,17 +1,17 @@
 // Configuration
-const CLE_API = "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"; 
+const CLE_API = "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"; 
 const URL_API = "https://openrouter.ai/api/v1/chat/completions";
 const MODELE_FIXE = "meta-llama/llama-3.3-70b-instruct:free";
 
 let enAttente = false;
-let controleurRequete = null; // Pour l'abort de la requête
+let controleurRequete = null;
 
 const saisieUtilisateur = document.getElementById('saisie-utilisateur');
 const btnEnvoyer = document.getElementById('btn-envoyer');
 const btnArreter = document.getElementById('btn-arreter');
 const boiteChat = document.getElementById('boite-chat');
 const btnNouvelleConversation = document.getElementById('btn-nouvelle-conversation');
-const btnMenuMobile = document.getElementById('btn-menu-mobile');
+const btnMenuPrincipal = document.getElementById('btn-menu-principal');
 const barreLaterale = document.getElementById('barre-laterale');
 
 // Initialisation
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
     btnArreter.addEventListener('click', arreterReponse);
     saisieUtilisateur.addEventListener('keypress', gererToucheEntree);
     btnNouvelleConversation.addEventListener('click', commencerNouvelleConversation);
-    btnMenuMobile.addEventListener('click', toggleMenuMobile);
+    btnMenuPrincipal.addEventListener('click', toggleBarreLaterale);
     
     // Message de bienvenue initial
     setTimeout(() => {
@@ -37,6 +37,19 @@ document.addEventListener('DOMContentLoaded', function() {
         modal.style.display = 'none';
     }
 });
+
+// Fonction pour basculer la barre latérale
+function toggleBarreLaterale() {
+    barreLaterale.classList.toggle('masquee');
+    
+    // Mettre à jour l'icone du bouton menu
+    const icon = btnMenuPrincipal.querySelector('i');
+    if (barreLaterale.classList.contains('masquee')) {
+        icon.className = 'fas fa-bars';
+    } else {
+        icon.className = 'fas fa-times';
+    }
+}
 
 // Fonction pour envoyer un message
 async function envoyerMessage() {
@@ -82,7 +95,7 @@ async function envoyerMessage() {
                             DOMAINES COUVERTS :
                             Mathématiques : Algèbre, Analyse, Probabilités, Statistiques, Calcul différentiel
                             Informatique : Algorithmique, Programmation, Bases de données, IA, Web
-                            Sciences : Mathématiques appliquées, Calcul scientifique, Physique mathématique, Cryptographie
+                            Sciences : Cryptographie, Mathématiques appliquées, Calcul scientifique
 
                             TON :
                             - Pédagogique mais précis
@@ -92,13 +105,13 @@ async function envoyerMessage() {
                             - Réponses complètes mais concises
 
                             FORMAT DE RÉPONSE :
-                            1. Compréhension du problème
-                            2. Concepts théoriques
-                            3. Résolution étape par étape
-                            4. Exemple concret
-                            5. Application pratique
-
-                            Pour les blocs de code, utilise le formatage markdown avec le nom du langage.`
+                            - Compréhension du problème
+                            - Concepts théoriques
+                            - Résolution étape par étape
+                            - Exemple concret
+                            - Application pratique
+                            - Résumé des points clés
+                            - Suggestions pour aller plus loin `
                     },
                     { role: 'user', content: message }
                 ],
@@ -195,36 +208,26 @@ function ajouterBoutonCopie(messageElement, contenu) {
     boutonCopie.classList.add('btn-copier');
     boutonCopie.title = 'Copier le texte';
     boutonCopie.innerHTML = '<i class="far fa-copy"></i>';
-    
+
     boutonCopie.addEventListener('click', function() {
-        // Créer un élément textarea temporaire pour la copie
         const textarea = document.createElement('textarea');
         textarea.value = extraireTexte(contenu);
         document.body.appendChild(textarea);
         textarea.select();
         document.execCommand('copy');
         document.body.removeChild(textarea);
-        
-        // Animation de confirmation
+
         boutonCopie.innerHTML = '<i class="fas fa-check"></i>';
         setTimeout(() => {
             boutonCopie.innerHTML = '<i class="far fa-copy"></i>';
         }, 2000);
     });
-    
-    // Ajouter le bouton au message
-    const contenuMessage = messageElement.querySelector('.contenu-message');
-    contenuMessage.style.position = 'relative';
-    boutonCopie.style.position = 'absolute';
-    boutonCopie.style.top = '5px';
-    boutonCopie.style.right = '5px';
-    boutonCopie.style.background = 'rgba(255, 255, 255, 0.7)';
-    boutonCopie.style.border = 'none';
-    boutonCopie.style.borderRadius = '3px';
-    boutonCopie.style.padding = '3px 5px';
-    boutonCopie.style.cursor = 'pointer';
-    boutonCopie.style.fontSize = '12px';
-    
+
+    // 👉 On le met maintenant après l'heure
+    const horodatage = messageElement.querySelector('.horodatage');
+    if (horodatage) {
+        horodatage.appendChild(boutonCopie);
+    }
     contenuMessage.appendChild(boutonCopie);
 }
 
@@ -396,11 +399,6 @@ function commencerNouvelleConversation() {
       modal.style.display = 'none';
     }
   };
-}
-
-// Toggle menu mobile
-function toggleMenuMobile() {
-  barreLaterale.classList.toggle('active');
 }
 
 // Gestionnaire d'erreurs global

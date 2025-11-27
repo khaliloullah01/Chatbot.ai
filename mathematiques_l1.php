@@ -16,10 +16,16 @@
 </head>
 <body>
 
-  <!-- Bouton menu mobile -->
-  <button class="bouton-menu" id="btn-menu-mobile">
+  <!-- Bouton menu principal -->
+  <button class="bouton-menu-principal" id="btn-menu-principal">
     <i class="fas fa-bars"></i>
   </button>
+
+  <!-- Icone de l'application (visible quand barre masquée) -->
+  <div class="icone-appli" id="icone-appli">
+    <i class="fas fa-graduation-cap"></i>
+    <span>tdsi.ai</span>
+  </div>
 
   <!-- Barre latérale -->
   <div class="barre-laterale" id="barre-laterale">
@@ -35,11 +41,11 @@
 
        <h4><i class="fas fa-th"></i> Mes outils</h4>
       <ul>
-        <li><a href="index.php"><i class="fas fa-comment"></i> tdsi chatbot</a></li>
-        <li><a href="#"><i class="fas fa-search"></i> Historique</a></li>
-        <li><a href="Programme.php"><i class="fas fa-laptop-code"></i> Mon programme</a></li>
-        <li><a href="Bibliotheque.php" class="active"><i class="fas fa-book-open"></i> Bibliothèque</a></li>
-        <li><a href="Cours.php"><i class="fas fa-book"></i> Mes cours</a></li>
+          <li><a href="index.php"><i class="fas fa-comment"></i> tdsi chatbot</a></li>
+          <li><a href="#"><i class="fas fa-search"></i> Historique</a></li>
+          <li><a href="Programme.php"><i class="fas fa-laptop-code"></i> Mon programme</a></li>
+          <li><a href="Bibliotheque.php" class="active"><i class="fas fa-book-open"></i> Bibliothèque</a></li>
+          <li><a href="Cours.php"><i class="fas fa-book"></i> Mes cours</a></li>
       </ul>
       
       <h4><i class="fas fa-history"></i> Historique des chats</h4>
@@ -80,8 +86,8 @@
               <p>Notions fondamentales de limites et continuité des fonctions</p>
             </div>
             <div class="cours-actions">
-              <a href="#" class="btn-action btn-voir"><i class="fas fa-eye"></i> Voir</a>
-              <a href="#" class="btn-action btn-telecharger"><i class="fas fa-download"></i></a>
+              <a href="#cours-limites" class="btn-action btn-voir"><i class="fas fa-eye"></i> Voir</a>
+              <a href="cours/cours-analyse-L1MPI-chap4.pdf" download class="btn-action btn-telecharger"><i class="fas fa-download"></i></a>
             </div>
           </div>
           
@@ -174,12 +180,57 @@
               <a href="#" class="btn-action btn-telecharger"><i class="fas fa-download"></i></a>
             </div>
           </div>
+        </div>
+      </div>
 
+      <!-- Section PDF du Cours -->
+      <div class="pdf-viewer-container" id="cours-limites">
+        <div class="pdf-viewer-header">
+          <h2><i class="fas fa-file-pdf me-2"></i>Cours Complet - Limites et Continuité</h2>
+          <div class="pdf-controls">
+            <a href="cours/cours-analyse-L1MPI-chap4.pdf" download class="btn-action btn-telecharger">
+              <i class="fas fa-download"></i> Télécharger le PDF
+            </a>
+          </div>
+        </div>
+        
+        <embed 
+          src="cours/cours-analyse-L1MPI-chap4.pdf" 
+          type="application/pdf" 
+          class="pdf-embed"
+          alt="Cours d'Analyse - Limites et Continuité - Licence 1">
+        
+        <div style="margin-top: 15px; text-align: center;">
+          <p class="text-muted">
+            <i class="fas fa-info-circle"></i> 
+            Si le PDF ne s'affiche pas, 
+            <a href="cours/cours-analyse-L1MPI-chap4.pdf" target="_blank" style="color: var(--couleur-principale);">
+              cliquez ici pour l'ouvrir dans un nouvel onglet
+            </a>
+          </p>
         </div>
       </div>
     </div>
   </div>
 
   <script src="JS/cours_details.js"></script>
+  <script>
+    // Toggle barre latérale
+    document.getElementById('btn-menu-principal').addEventListener('click', function() {
+      const barreLaterale = document.getElementById('barre-laterale');
+      const iconeAppli = document.getElementById('icone-appli');
+      const icon = this.querySelector('i');
+      
+      barreLaterale.classList.toggle('masquee');
+      
+      if (barreLaterale.classList.contains('masquee')) {
+        icon.className = 'fas fa-bars';
+        iconeAppli.style.display = 'flex';
+      } else {
+        icon.className = 'fas fa-times';
+        iconeAppli.style.display = 'none';
+      }
+    });
+  </script>
 </body>
 </html>

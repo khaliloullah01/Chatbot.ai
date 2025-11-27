@@ -1,0 +1,205 @@
+:root {
+  --couleur-principale: #133ebe;
+  --couleur-secondaire: #f8f9fc;
+  --couleur-texte: #5a5c69;
+  --couleur-border: #e3e6f0;
+}
+
+.breadcrumb {
+  margin-bottom: 20px;
+}
+
+.breadcrumb a {
+  color: var(--couleur-principale);
+  text-decoration: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.3s;
+}
+
+.breadcrumb a:hover {
+  color: #2e59d9;
+}
+
+.matiere-section {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  margin-bottom: 25px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.matiere-titre {
+  color: var(--couleur-principale);
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--couleur-border);
+  display: flex;
+  align-items: center;
+}
+
+.cours-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.cours-item {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid var(--couleur-border);
+  border-radius: 8px;
+  transition: all 0.3s;
+  background: #f8f9fc;
+}
+
+.cours-item:hover {
+  background: white;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.cours-icon {
+  width: 50px;
+  height: 50px;
+  background: var(--couleur-principale);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2rem;
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+
+.cours-info {
+  flex: 1;
+}
+
+.cours-info h3 {
+  margin: 0 0 8px 0;
+  color: var(--couleur-principale);
+  font-size: 1.1rem;
+}
+
+.cours-info p {
+  margin: 0;
+  color: var(--couleur-texte);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.cours-actions {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.btn-action {
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.btn-voir {
+  background: var(--couleur-principale);
+  color: white;
+}
+
+.btn-voir:hover {
+  background: #2e59d9;
+  color: white;
+}
+
+.btn-telecharger {
+  background: #eaecf4;
+  color: var(--couleur-principale);
+  border: 1px solid var(--couleur-border);
+}
+
+.btn-telecharger:hover {
+  background: #d8dbe4;
+}
+
+/* Styles pour la visualisation PDF */
+.pdf-viewer-container {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  margin-bottom: 25px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.pdf-viewer-header {
+  display: flex;
+  justify-content: between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--couleur-border);
+}
+
+.pdf-viewer-header h2 {
+  color: var(--couleur-principale);
+  margin: 0;
+}
+
+.pdf-controls {
+  display: flex;
+  gap: 10px;
+}
+
+.pdf-controls button {
+  background: var(--couleur-principale);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.3s;
+}
+
+.pdf-controls button:hover {
+  background: #2e59d9;
+}
+
+.pdf-embed {
+  width: 100%;
+  height: 600px;
+  border: 1px solid var(--couleur-border);
+  border-radius: 8px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .cours-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  
+  .cours-icon {
+    margin-right: 0;
+  }
+  
+  .cours-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .pdf-embed {
+    height: 400px;
+  }
+}

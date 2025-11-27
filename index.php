@@ -26,8 +26,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/cpp.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/sql.min.js"></script>
 
-
-  
   <script>
     window.MathJax = {
       tex: {
@@ -47,11 +45,6 @@
   </script>
 </head>
 <body>
-
-  <!-- Bouton menu mobile -->
-  <button class="bouton-menu" id="btn-menu-mobile">
-    <i class="fas fa-bars"></i>
-  </button>
 
   <!-- Barre latérale -->
   <div class="barre-laterale" id="barre-laterale">
@@ -84,11 +77,11 @@
 
       <h4><i class="fas fa-th"></i> Mes outils</h4>
       <ul>
-        <li><a href="index.php"><i class="fas fa-comment"></i> tdsi chatbot</a></li>
-        <li><a href="#"><i class="fas fa-search"></i> Historique</a></li>
-        <li><a href="Programme.php"><i class="fas fa-laptop-code"></i> Mon programme</a></li>
-        <li><a href="Bibliotheque.php" class="active"><i class="fas fa-book-open"></i> Bibliothèque</a></li>
-        <li><a href="Cours.php"><i class="fas fa-book"></i> Mes cours</a></li>
+          <li><a href="index.php" class="active"><i class="fas fa-comment"></i> tdsi chatbot</a></li>
+          <li><a href="#"><i class="fas fa-search"></i> Historique</a></li>
+          <li><a href="Programme.php"><i class="fas fa-laptop-code"></i> Mon programme</a></li>
+          <li><a href="Bibliotheque.php"><i class="fas fa-book-open"></i> Bibliothèque</a></li>
+          <li><a href="Cours.php"><i class="fas fa-book"></i> Mes cours</a></li>
       </ul>
       
       <h4><i class="fas fa-history"></i> Historique des chats</h4> 
@@ -108,8 +101,19 @@
 
   <!-- Contenu principal -->
   <div class="contenu-principal">
-    <!-- En-tête -->
+    <!-- En-tête avec bouton menu et icone appli -->
     <div class="en-tete">
+      <!-- Bouton menu principal -->
+      <button class="bouton-menu-principal" id="btn-menu-principal">
+        <i class="fas fa-bars"></i>
+      </button>
+      
+      <!-- Icone de l'application (visible quand barre masquée) -->
+      <div class="icone-appli" id="icone-appli">
+        <i class="fas fa-graduation-cap"></i>
+        <span>tdsi.ai</span>
+      </div>
+      
       <button title="En savoir plus">
         <i class="fas fa-cogs"></i> En savoir plus
       </button>

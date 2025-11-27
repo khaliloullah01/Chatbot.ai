@@ -1,43 +1,94 @@
 :root {
-  --couleur-principale: #133ebe;
-  --couleur-secondaire: #f8f9fc;
-  --couleur-message-utilisateur: #d1e7dd;
-  --couleur-message-bot: #e9ecef;
-  --couleur-erreur: #f8d7da;
-  --couleur-code: #272822;
-  --couleur-code-fond: #f6f8fa;
+  /* ===== Couleurs principales ===== */
+  --couleur-principale: #133ebe; /* Bleu TDSI */
+  --couleur-secondaire: #2e59d9; /* Bleu plus vif */
+  --couleur-accent: #e74c3c; /* Rouge pour alertes */
+  --couleur-success: #1cc88a; /* Vert succès */
+  --couleur-warning: #f6c23e; /* Jaune avertissements */
+  --couleur-barre-laterale: #ffffff; /* Fond barre latérale */
+  
+  /* ===== Couleurs de texte ===== */
+  --couleur-texte-principal: #2c3e50; /* Gris foncé */
+  --couleur-texte-secondaire: #7f8c8d; /* Gris doux */
+  --couleur-texte-bright: #ffffff; /* Texte sur fond sombre */
+  
+  /* ===== Bordures et séparations ===== */
+  --couleur-border: #e3e6f0;
+
+  /* ===== Couleurs spécifiques au chat ===== */
+  --couleur-message-utilisateur: #133ebe; /* Utilisateur */
+  --couleur-message-bot: #f8f9fc; /* Bot */
+  --couleur-erreur: #e74c3c; /* Erreur */
+  
+  /* ===== Code et zones techniques ===== */
+  --couleur-code: #2c3e50; /* Fond code */
+  --couleur-code-fond: #f1f3f6; /* Fond bloc code */
+
+  /* ===== Nouvelles couleurs ===== */
+  --couleur-bleu-clair: #3f8ec2;
+  --couleur-bleu-fonce: #2471a3;
+  --couleur-gris-clair: #f1f1f1;
+  --couleur-gris-moyen: #c1c1c1;
+  --couleur-gris-fonce: #a8a8a8;
+  --couleur-texte-bot: #2c3e50;
+  --couleur-selection-active: #e8f2fc; /* NOUVEAU : Couleur de sélection bien visible */
 }
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  background: #ffffff;
   margin: 0;
   min-height: 100vh;
+  color: var(--couleur-texte-principal);
 }
 
-/* Bouton menu mobile */
-.bouton-menu {
-  display: none;
+/* Bouton menu principal */
+.bouton-menu-principal {
+  display: flex;
   position: fixed;
-  top: 15px;
-  left: 15px;
+  top: 5px;
+  left: 10px;
   z-index: 1000;
   background: var(--couleur-principale);
   color: white;
   border: none;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-/* Barre latérale */
+.bouton-menu-principal:hover {
+  background: var(--couleur-secondaire);
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Icone de l'application */
+.icone-appli {
+  display: none;
+  align-items: center;
+  gap: 10px;
+  color: var(--couleur-principale);
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-right: auto;
+  margin-left: 60px;
+}
+
+.icone-appli i {
+  font-size: 1.5rem;
+}
+
+/* Barre latérale - Style original conservé */
 .barre-laterale {
   width: 280px;
-  background: #ffffff;
-  border-right: 1px solid #e3e6f0;
+  background: var(--couleur-barre-laterale);
+  border-right: 1px solid var(--couleur-border);
   height: 100vh;
   padding: 25px 20px;
   position: fixed;
@@ -46,7 +97,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  box-shadow: 7 0 15px rgba(0, 0, 0, 0.05);
+  box-shadow: 3px 5px 10px #aaa;
   z-index: 100;
   transition: transform 0.3s ease;
 }
@@ -54,7 +105,7 @@ body {
 .entete-barre-laterale {
   text-align: center;
   padding-bottom: 20px;
-  border-bottom: 1px solid #e3e6f0;
+  border-bottom: 1px solid var(--couleur-border);
   margin-bottom: 20px;
 }
 
@@ -66,34 +117,37 @@ body {
 }
 
 .entete-barre-laterale p {
-  color: #858796;
+  color: var(--couleur-texte-secondaire);
   font-size: 0.9rem;
   margin: 5px 0 0;
 }
 
 .barre-laterale .btn-nouvelle-conversation {
   background: var(--couleur-principale);
-  color: white;
+  color: var(--couleur-texte-bright);
   border: none;
   border-radius: 8px;
   padding: 12px;
   font-weight: 600;
   margin-bottom: 20px;
   transition: all 0.3s;
+  box-shadow: 0 2px 4px rgba(41, 128, 185, 0.3);
 }
 
 .barre-laterale .btn-nouvelle-conversation:hover {
-  background: #2e59d9;
+  background: var(--couleur-bleu-clair);
   transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(41, 128, 185, 0.4);
 }
 
 .barre-laterale h4 {
   font-size: 1rem;
   margin-bottom: 15px;
-  color: #133ebe;
+  color: var(--couleur-principale);
   font-weight: 600;
 }
 
+/* STYLE DES UL DE LA BARRE LATÉRALE CONSERVÉ */
 .barre-laterale ul {
   list-style: none;
   padding: 0;
@@ -101,29 +155,34 @@ body {
 }
 
 .barre-laterale ul li {
-  margin: 12px 0;
+  margin: 8px 0;
   font-size: 0.95rem;
   cursor: pointer;
-  padding: 8px 12px;
+  padding: 10px 12px;
   border-radius: 6px;
   transition: all 0.2s;
-  color: #5a5c69;
+  color: var(--couleur-texte-principal);
 }
 
 .barre-laterale ul li:hover {
-  background-color: #eaecf4;
-  color: var(--couleur-principale);
+  background-color: rgba(41, 128, 185, 0.1);
+  color: var(--couleur-secondaire);
 }
-/* Ajouts pour la navigation active */
+
+/* CORRECTION DU PROBLÈME DE SÉLECTION */
 .barre-laterale ul li a.active {
-  background-color: #eaecf4;
-  color: var(--couleur-principale);
+  background-color: var(--couleur-selection-active); /* Bleu clair bien visible */
+  color: var(--couleur-secondaire);
   font-weight: 600;
+  border-left: 3px solid var(--couleur-secondaire);
+  margin-left: -3px;
 }
 
 .barre-laterale ul li a.active:hover {
-  color: var(--couleur-principale);
+  background-color: #d4e6f8; /* Bleu un peu plus foncé au hover */
+  color: var(--couleur-secondaire);
 }
+
 .barre-laterale ul li a {
   text-decoration: none;
   color: inherit;
@@ -133,12 +192,12 @@ body {
 }
 
 .barre-laterale ul li a:hover {
-  color: var(--couleur-principale);
+  color: var(--couleur-secondaire);
 }
 
 .profil {
   padding-top: 20px;
-  border-top: 1px solid #e3e6f0;
+  border-top: 1px solid var(--couleur-border);
 }
 
 .contenu-profil {
@@ -152,7 +211,7 @@ body {
   border-radius: 50%;
   object-fit: cover;
   margin-right: 12px;
-  border: 2px solid var(--couleur-principale);
+  border: 2px solid var(--couleur-secondaire);
 }
 
 .info-profil {
@@ -161,48 +220,69 @@ body {
 
 .nom-profil {
   font-weight: 600;
-  color: #5a5c69;
+  color: var(--couleur-principale);
   margin: 0;
   font-size: 0.95rem;
 }
 
 .email-profil {
-  color: #858796;
+  color: var(--couleur-texte-secondaire);
   font-size: 0.8rem;
   margin: 0;
 }
 
 /* Contenu principal */
 .contenu-principal {
-  margin-left: 280px;
-  padding: 30px;
+  margin-left: 310px;
+  padding: 0;
   display: flex;
   flex-direction: column;
   height: 100vh;
+  transition: margin-left 0.3s ease;
+  background: #ffffff;
+  margin-top: 20px;
 }
 
 .en-tete {
   display: flex;
   justify-content: flex-end;
-  margin-bottom: 20px;
+  align-items: center;
+  margin-bottom: 0;
+  position: relative;
+  padding: 15px 30px;
+  background: #ffffff;
 }
 
-.en-tete button {
-  background: var(--couleur-principale);
-  color: white;
+.en-tete button:last-child {
+  background: var(--couleur-secondaire);
+  color: var(--couleur-texte-bright);
   border: none;
   padding: 10px 20px;
   border-radius: 8px;
   font-size: 0.9rem;
   font-weight: 600;
   transition: all 0.3s;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 5px rgba(41, 128, 185, 0.3);
 }
 
-.en-tete button:hover {
-  background: #2e59d9;
+.en-tete button:last-child:hover {
+  background: var(--couleur-bleu-fonce);
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 8px rgba(41, 128, 185, 0.4);
+}
+
+/* État lorsque la barre est masquée */
+.barre-laterale.masquee {
+  transform: translateX(-100%);
+}
+
+.barre-laterale.masquee + .contenu-principal {
+  margin-left: 0;
+}
+
+/* Quand la barre est masquée, afficher l'icone de l'appli */
+.barre-laterale.masquee + .contenu-principal .icone-appli {
+  display: flex;
 }
 
 /* Conteneur de chat */
@@ -210,15 +290,14 @@ body {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  margin: 0 auto 20px auto;
+  margin: 0;
   width: 100%;
-  max-width: 1000px;
-  max-height: 70vh;
+  height: calc(100vh - 160px);
   overflow-y: auto;
-  background: #fff;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.527);
+  background: #ffffff;
+  border-radius: 0;
+  padding: 30px;
+  box-shadow: none;
   flex-grow: 1;
 }
 
@@ -228,35 +307,40 @@ body {
   border-radius: 12px;
   max-width: 80%;
   word-wrap: break-word;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   line-height: 1.5;
   position: relative;
+  border: 1px solid var(--couleur-border);
 }
 
 .message.utilisateur {
   background: var(--couleur-message-utilisateur);
   align-self: flex-end;
   border-bottom-right-radius: 4px;
+  color: var(--couleur-texte-bright);
+  border: none;
 }
 
 .message.bot {
   background: var(--couleur-message-bot);
   align-self: flex-start;
   border-bottom-left-radius: 4px;
+  color: var(--couleur-texte-bot);
 }
 
 .message.erreur {
   background: var(--couleur-erreur);
-  color: #721c24;
+  color: var(--couleur-texte-bright);
   align-self: center;
   max-width: 90%;
   text-align: center;
+  border: none;
 }
 
 /* Styles pour l'horodatage avec le bouton copier */
 .message .horodatage {
   font-size: 0.75rem;
-  color: #6c757d;
+  color: var(--couleur-texte-principal);
   margin-top: 8px;
   text-align: right;
   display: flex;
@@ -273,29 +357,31 @@ body {
 
 /* Bouton copier dans l'horodatage */
 .horodatage .btn-copier {
-  background: rgba(19, 62, 190, 0.1);
-  border: none;
-  cursor: pointer;
-  color: var(--couleur-principale);
-  font-size: 0.8rem;
-  padding: 4px 8px;
-  border-radius: 4px;
-  transition: all 0.2s;
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
+    background: border-box;
+    color: var(--couleur-texte-bright);
+    background-color: var(--couleur-principale);
+    position: relative;
+    font-size: 0.8rem;
+    padding: 3px 14px;
+    top: -4px;
+    border-radius: 33px;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 1px;
 }
 
 .horodatage .btn-copier:hover {
-  background: rgba(19, 62, 190, 0.2);
+  background: var(--couleur-bleu-fonce);
   transform: scale(1.05);
 }
+
 /* Styles pour le bouton copier */
 .btn-copier {
-  background: rgba(19, 62, 190, 0.1);
-  border: 1px solid rgba(19, 62, 190, 0.2);
+  background: var(--couleur-principale);
+  border: 1px solid rgba(44, 62, 80, 0.2);
   cursor: pointer;
-  color: var(--couleur-principale);
+  color: var(--couleur-texte-bright);
   font-size: 0.8rem;
   padding: 6px 12px;
   border-radius: 4px;
@@ -307,9 +393,10 @@ body {
 }
 
 .btn-copier:hover {
-  background: rgba(19, 62, 190, 0.2);
+  background: var(--couleur-bleu-fonce);
   transform: scale(1.05);
 }
+
 /* Styles pour le contenu des messages */
 .contenu-message h1, .contenu-message h2, .contenu-message h3 {
   margin-top: 1rem;
@@ -319,47 +406,50 @@ body {
 
 .contenu-message p {
   margin: 0.5rem 0;
+  color: var(--couleur-texte-principal);
 }
 
 .contenu-message ul, .contenu-message ol {
   margin: 0.5rem 0;
   padding-left: 1.5rem;
+  color: var(--couleur-texte-principal);
 }
 
 .contenu-message li {
   margin: 0.25rem 0;
+  color: var(--couleur-texte-principal);
 }
 
 .contenu-message blockquote {
-  border-left: 4px solid var(--couleur-principale);
+  border-left: 4px solid var(--couleur-secondaire);
   padding: 0.5rem 1rem;
   margin: 1rem 0;
-  background-color: #f8f9fa;
-  color: #495057;
+  background-color: var(--couleur-barre-laterale);
+  color: var(--couleur-texte-principal);
   font-style: italic;
 }
 
 /* Styles améliorés pour les blocs de code */
 .code-block {
-  background: #1e1e1e;
+  background: var(--couleur-code);
   border-radius: 8px;
   margin: 1.2rem 0;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  border: 1px solid #3c3c3c;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: 1px solid #34495e;
   font-family: 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace;
 }
 
 .code-header {
-  background: #2d2d30;
-  color: #cccccc;
+  background: #34495e;
+  color: #bdc3c7;
   padding: 0.7rem 1rem;
   font-size: 0.85rem;
   font-weight: 600;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #3c3c3c;
+  border-bottom: 1px solid var(--couleur-code);
 }
 
 .code-header .lang-name {
@@ -375,14 +465,14 @@ body {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: #f44747;
-  box-shadow: -18px 0 0 #ff9d00, 18px 0 0 #19c37d;
+  background: #e74c3c;
+  box-shadow: -18px 0 0 #f39c12, 18px 0 0 #27ae60;
 }
 
 .code-header .copy-btn {
   background: rgba(255, 255, 255, 0.1);
   border: none;
-  color: #cccccc;
+  color: #bdc3c7;
   padding: 4px 8px;
   border-radius: 4px;
   cursor: pointer;
@@ -401,14 +491,14 @@ body {
   margin: 0;
   padding: 1.2rem;
   overflow-x: auto;
-  background: #1e1e1e;
+  background: var(--couleur-code);
   line-height: 1.5;
 }
 
 .code-block code {
   font-family: 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace;
   font-size: 0.95rem;
-  color: #d4d4d4;
+  color: #ecf0f1;
   display: block;
   -moz-tab-size: 4;
   -o-tab-size: 4;
@@ -416,35 +506,35 @@ body {
 }
 
 .code-block .hljs {
-  background: #1e1e1e;
+  background: var(--couleur-code);
   padding: 0;
 }
 
 /* Styles spécifiques pour la coloration syntaxique */
-.hljs-keyword { color: #569cd6; }
-.hljs-built_in { color: #4ec9b0; }
-.hljs-type { color: #4ec9b0; }
-.hljs-literal { color: #569cd6; }
-.hljs-number { color: #b5cea8; }
-.hljs-string { color: #ce9178; }
-.hljs-comment { color: #6a9955; font-style: italic; }
-.hljs-title { color: #dcdcaa; }
-.hljs-function { color: #dcdcaa; }
-.hljs-params { color: #9cdcfe; }
-.hljs-meta { color: #9b9b9b; }
-.hljs-variable { color: #9cdcfe; }
-.hljs-operator { color: #d4d4d4; }
-.hljs-punctuation { color: #d4d4d4; }
+.hljs-keyword { color: #2980b9; }
+.hljs-built_in { color: #9b59b6; }
+.hljs-type { color: #9b59b6; }
+.hljs-literal { color: #2980b9; }
+.hljs-number { color: #2ecc71; }
+.hljs-string { color: #e67e22; }
+.hljs-comment { color: #95a5a6; font-style: italic; }
+.hljs-title { color: #f1c40f; }
+.hljs-function { color: #f1c40f; }
+.hljs-params { color: #2980b9; }
+.hljs-meta { color: #95a5a6; }
+.hljs-variable { color: #2980b9; }
+.hljs-operator { color: #ecf0f1; }
+.hljs-punctuation { color: #ecf0f1; }
 
 /* Styles pour le code inline */
 .inline-code {
-  background: rgba(97, 175, 239, 0.1);
+  background: rgba(41, 128, 185, 0.1);
   padding: 0.2em 0.4em;
   border-radius: 3px;
   font-family: 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace;
   font-size: 0.9em;
-  color: #61afef;
-  border: 1px solid rgba(97, 175, 239, 0.2);
+  color: var(--couleur-secondaire);
+  border: 1px solid rgba(41, 128, 185, 0.2);
 }
 
 /* Styles pour les tableaux */
@@ -455,13 +545,14 @@ body {
 }
 
 .contenu-message th, .contenu-message td {
-  border: 1px solid #dee2e6;
+  border: 1px solid var(--couleur-border);
   padding: 0.5rem;
   text-align: left;
+  color: var(--couleur-texte-principal);
 }
 
 .contenu-message th {
-  background-color: var(--couleur-secondaire);
+  background-color: var(--couleur-barre-laterale);
   font-weight: 600;
 }
 
@@ -476,7 +567,7 @@ body {
 
 /* Styles pour MathJax */
 .MathJax {
-  color: #d63384;
+  color: var(--couleur-secondaire);
   font-size: 1.1em;
 }
 
@@ -487,7 +578,7 @@ body {
 /* Amélioration de l'indicateur de frappe */
 .indicateur-frappe {
   padding: 1rem;
-  color: #6c757d;
+  color: var(--couleur-texte-secondaire);
   font-style: italic;
 }
 
@@ -503,15 +594,15 @@ body {
 
 .points {
   display: flex;
-  gap: 3px;
+  gap: 4px;
 }
 
 .points span {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background-color: #6c757d;
-  animation: bounce 1.3s infinite ease-in-out;
+  background-color: var(--couleur-texte-secondaire);
+  animation: bounce 1.2s infinite ease-in-out;
 }
 
 .points span:nth-child(1) { animation-delay: 0s; }
@@ -530,6 +621,7 @@ body {
 
 .message.bot .contenu-message p {
   margin-bottom: 1rem;
+  font-size: 1.3rem;
 }
 
 /* Styles pour la zone de texte extensible */
@@ -538,10 +630,10 @@ body {
   align-items: flex-end;
   width: 100%;
   background: #fff;
-  border: 1px solid #d1d3e2;
+  border: 3px solid var(--couleur-border);
   border-radius: 25px;
   padding: 12px 20px;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 8px 8px 12px #aaa;
   max-height: 150px;
   overflow-y: auto;
 }
@@ -558,6 +650,7 @@ body {
   line-height: 1.5;
   padding: 0;
   margin: 0;
+  color: var(--couleur-texte-principal);
 }
 
 .boutons-saisie {
@@ -571,7 +664,7 @@ body {
   border: none;
   cursor: pointer;
   font-size: 1.1rem;
-  color: var(--couleur-principale);
+  color: var(--couleur-secondaire);
   transition: color 0.2s;
   margin-left: 8px;
   padding: 0;
@@ -584,28 +677,30 @@ body {
 }
 
 .boite-saisie::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: var(--couleur-gris-clair);
   border-radius: 10px;
 }
 
 .boite-saisie::-webkit-scrollbar-thumb {
-  background: #c1c1c1;
+  background: var(--couleur-gris-moyen);
   border-radius: 10px;
 }
 
 .boite-saisie::-webkit-scrollbar-thumb:hover {
-  background: #a8a8a8;
+  background: var(--couleur-gris-fonce);
 }
 
-/* Zone de saisie */
+/* Zone de saisie avec ombre en dessous */
 .conteneur-saisie {
   display: flex;
   justify-content: center;
   margin: 0 auto;
   width: 100%;
   max-width: 1000px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.527);
   border-radius: 25px;
+  padding: 0 20px 20px 20px;
+  background: #ffffff;
+  position: relative;
 }
 
 /* Responsive */
@@ -620,11 +715,21 @@ body {
   
   .contenu-principal {
     margin-left: 0;
+    padding: 0;
+  }
+  
+  .en-tete {
     padding: 15px;
   }
   
-  .bouton-menu {
-    display: flex;
+  .conteneur-chat {
+    height: calc(100vh - 140px);
+    padding: 15px;
+  }
+  
+  .conteneur-saisie {
+    padding: 0 15px 15px 15px;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.08);
   }
   
   .message {
@@ -647,4 +752,25 @@ body {
   .boutons-saisie {
     margin-left: 5px;
   }
+  
+  /* Sur mobile, l'icone appli est toujours visible */
+  .icone-appli {
+    display: flex;
+  }
+}
+
+/* Supprimer les bordures de focus par défaut */
+button:focus,
+a:focus,
+.btn:focus {
+  outline: none !important;
+}
+
+/* Remplacer par un style personnalisé pour l'accessibilité */
+button:focus-visible,
+a:focus-visible,
+.btn:focus-visible {
+  outline: 2px solid var(--couleur-secondaire) !important;
+  outline-offset: 2px !important;
+  border-radius: 4px;
 }

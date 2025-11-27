@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="TDSI.ai - Plateforme d'apprentissage en Transmission de Données et Sécurité de l'Information">
+    <meta name="author" content="Ibrahima Khalilou llah Sylla">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <title>TDSI.ai - Plateforme d'Apprentissage</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/templatemo-574-mexant.css">
+    <link rel="stylesheet" href="assets/css/owl.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
+
+    <style>
+      /* Styles personnalisés pour le formulaire d'inscription */
+      .register-form input,
+      .register-form select {
+        background-color: rgba(255, 255, 255, 0.1) !important;
+        border: 1px solid rgba(255, 255, 255, 0.3) !important;
+        border-radius: 5px !important;
+        width: 100% !important;
+        height: 50px !important;
+        color: #fff !important;
+        font-size: 14px !important;
+        margin-bottom: 20px !important;
+        outline: none !important;
+        padding: 0px 15px !important;
+        transition: all 0.3s ease !important;
+      }
+
+      .register-form input::placeholder {
+        color: rgba(255, 255, 255, 0.7) !important;
+      }
+
+      .register-form input:focus,
+      .register-form select:focus {
+        background-color: rgba(255, 255, 255, 0.2) !important;
+        border-color: var(--couleur-success) !important;
+        box-shadow: 0 0 10px rgba(246, 194, 62, 0.3) !important;
+      }
+
+      .register-form label {
+        color: #fff !important;
+        font-size: 14px !important;
+        margin-bottom: 8px !important;
+        display: block !important;
+        font-weight: 500 !important;
+      }
+
+      .register-form .form-check {
+        margin: 20px 0 !important;
+      }
+
+      .register-form .form-check-input {
+        margin-right: 10px !important;
+      }
+
+      .register-form .form-check-label {
+        color: #fff !important;
+        font-size: 14px !important;
+      }
+
+      .register-form .orange-button {
+        width: 100% !important;
+        margin-top: 10px !important;
+      }
+
+      /* Amélioration des témoignages */
+      .testimonial-avatar {
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(135deg, var(--couleur-principale), var(--couleur-secondaire));
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+        color: white;
+        font-size: 32px;
+        font-weight: bold;
+      }
+    </style>
+
+  </head>
+
+<body>
+
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky">
+      <div class="container">
+          <div class="row">
+              <div class="col-12">
+                  <nav class="main-nav">
+                      <!-- ***** Logo Start ***** -->
+                      <a href="index.html" class="logo">
+                          <img src="assets/images/tdsi-ai-logo.png" alt="TDSI.ai Logo">
+                      </a>
+                      <!-- ***** Logo End ***** -->
+                      <!-- ***** Menu Start ***** -->
+                      <ul class="nav">
+                          <li class="scroll-to-section"><a href="#top" class="active">Accueil</a></li>
+                          <li class="scroll-to-section"><a href="#services">Services</a></li>
+                          <li class="scroll-to-section"><a href="#about">À Propos</a></li>
+                          <li class="scroll-to-section"><a href="#testimonials">Créateur</a></li>
+                          <li class="scroll-to-section"><a href="#register">Inscription</a></li>
+                          <li><a href="login.php">Connexion</a></li> 
+                      </ul>        
+                      <a class='menu-trigger'>
+                          <span>Menu</span>
+                      </a>
+                      <!-- ***** Menu End ***** -->
+                  </nav>
+              </div>
+          </div>
+      </div>
+  </header>
+  <!-- ***** Header Area End ***** -->
+
+  <!-- ***** Main Banner Area Start ***** -->
+  <div class="swiper-container" id="top">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <div class="slide-inner" style="background-image:url(assets/images/slide-01.jpg)">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-8">
+                <div class="header-text">
+                  <h2>Apprenez autrement avec <em>TDSI.ai</em><br>Votre chatbot pour des explications <em>simples</em> et <em>efficaces</em>.</h2>
+                  <div class="div-dec"></div>
+                  <p>TDSI.ai est la plateforme d'apprentissage innovante dédiée aux étudiants en Transmission de Données et Sécurité de l'Information. Accédez à des ressources pédagogiques avancées et un chatbot intelligent pour votre réussite académique.</p>
+                  <div class="buttons">
+                    <div class="green-button">
+                      <a href="#services">Nos Services</a>
+                    </div>
+                    <div class="orange-button">
+                      <a href="#register">S'inscrire Maintenant</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="slide-inner" style="background-image:url(assets/images/slide-02.jpg)">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-8">
+                <div class="header-text">
+                  <h2><em>Chatbot</em> Intelligent pour vous <br>&amp; Meilleur <em>Assistant</em> Pédagogique</h2>
+                  <div class="div-dec"></div>
+                  <p>Notre chatbot IA vous accompagne dans votre apprentissage, répond à vos questions et vous guide à travers les concepts complexes de la sécurité informatique et des transmissions de données.</p>
+                  <div class="buttons">
+                    <div class="green-button">
+                      <a href="#about">En Savoir Plus</a>
+                    </div>
+                    <div class="orange-button">
+                      <a href="#register">Rejoindre Gratuitement</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="slide-inner" style="background-image:url(assets/images/slide-03.jpg)">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-8">
+                <div class="header-text">
+                  <h2>Excellence Académique<br>&amp; Innovation <em>Technologique</em></h2>
+                  <div class="div-dec"></div>
+                  <p>Rejoignez une communauté d'étudiants passionnés par les technologies de l'information. Accédez à des cours interactifs, des exercices pratiques et un suivi personnalisé de votre progression.</p>
+                  <div class="buttons">
+                    <div class="green-button">
+                      <a href="#testimonials">Découvrir le Créateur</a>
+                    </div>
+                    <div class="orange-button">
+                      <a href="#register">Commencer l'Aventure</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="swiper-button-next swiper-button-white"></div>
+    <div class="swiper-button-prev swiper-button-white"></div>
+  </div>
+
+  <!-- ***** Main Banner Area End ***** -->
+
+  <section class="services" id="services">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="service-item">
+            <i class="fas fa-robot"></i>
+            <h4>Chatbot Intelligent</h4>
+            <p>Assistant IA disponible 24/7 pour répondre à vos questions sur les cours et concepts TDSI.</p>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="service-item">
+            <i class="fas fa-book"></i>
+            <h4>Ressources Pédagogiques</h4>
+            <p>Accédez à une bibliothèque complète de cours, exercices et projets pratiques.</p>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="service-item">
+            <i class="fas fa-chart-line"></i>
+            <h4>Suivi de Progression</h4>
+            <p>Visualisez votre avancement et identifiez les domaines à améliorer.</p>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="service-item">
+            <i class="fas fa-users"></i>
+            <h4>Communauté Étudiante</h4>
+            <p>Échangez avec vos pairs et collaborez sur des projets communs.</p>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="service-item">
+            <i class="fas fa-shield-alt"></i>
+            <h4>Sécurité Informatique</h4>
+            <p>Apprenez les meilleures pratiques en cybersécurité et protection des données.</p>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="service-item">
+            <i class="fas fa-network-wired"></i>
+            <h4>Réseaux & Transmission</h4>
+            <p>Maîtrisez les protocoles de communication et technologies réseau.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="simple-cta">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-5">
+          <h4>Plateforme <em>100% Gratuite</em> pour tous les <strong>Étudiants TDSI</strong></h4>
+        </div>
+        <div class="col-lg-7">
+          <div class="buttons">
+            <div class="green-button">
+              <a href="#about">Découvrir la Plateforme</a>
+            </div>
+            <div class="orange-button">
+              <a href="#register">Créer un Compte</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-us" id="about">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+          <div class="section-heading">
+            <h6>À Propos de Nous</h6>
+            <h4>Découvrez TDSI.ai</h4>
+          </div>
+        </div>
+        <div class="col-lg-8">
+          <div class="naccs">
+            <div class="tabs">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="menu">
+                    <div class="active gradient-border"><span>Chatbot IA</span></div>
+                    <div class="gradient-border"><span>Ressources</span></div>
+                    <div class="gradient-border"><span>Communauté</span></div>
+                  </div>
+                </div>
+                <div class="col-lg-12">
+                  <ul class="nacc">
+                    <li class="active">
+                      <div>
+                        <div class="main-list">
+                          <span class="title">Fonctionnalité</span>
+                          <span class="title">Description</span>
+                          <span class="title">Bénéfice</span>
+                        </div>
+                        <div class="list-item">
+                          <span class="item item-title">Assistant 24/7</span>
+                          <span class="item">Disponible à tout moment</span>
+                          <span class="item">Flexibilité d'apprentissage</span>
+                        </div>
+                        <div class="list-item">
+                          <span class="item item-title">Réponses Contextuelles</span>
+                          <span class="item">Compréhension des concepts TDSI</span>
+                          <span class="item">Explications personnalisées</span>
+                        </div>
+                        <div class="list-item">
+                          <span class="item item-title">Guidage Pas-à-Pas</span>
+                          <span class="item">Aide aux exercices pratiques</span>
+                          <span class="item">Meilleure compréhension</span>
+                        </div>
+                        <div class="list-item last-item">
+                          <span class="item item-title">Mise à Jour Continue</span>
+                          <span class="item">Amélioration constante</span>
+                          <span class="item">Contenu toujours actuel</span>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        <div class="main-list">
+                          <span class="title">Type de Ressource</span>
+                          <span class="title">Contenu</span>
+                          <span class="title">Accès</span>
+                        </div>
+                        <div class="list-item">
+                          <span class="item item-title">Cours Complets</span>
+                          <span class="item">Théorie et pratique</span>
+                          <span class="item">Illimité</span>
+                        </div>
+                        <div class="list-item">
+                          <span class="item item-title">Exercices</span>
+                          <span class="item">Problèmes et solutions</span>
+                          <span class="item">Auto-évaluation</span>
+                        </div>
+                        <div class="list-item">
+                          <span class="item item-title">Projets Pratiques</span>
+                          <span class="item">Cas réels d'entreprise</span>
+                          <span class="item">Apprentissage appliqué</span>
+                        </div>
+                        <div class="list-item last-item">
+                          <span class="item item-title">Bibliothèque</span>
+                          <span class="item">Documents de référence</span>
+                          <span class="item">Recherche avancée</span>
+                        </div>
+                    </li>
+                    <li>
+                      <div>
+                        <div class="main-list">
+                          <span class="title">Fonctionnalité</span>
+                          <span class="title">Description</span>
+                          <span class="title">Avantage</span>
+                        </div>
+                        <div class="list-item">
+                          <span class="item item-title">Forums de Discussion</span>
+                          <span class="item">Échanges entre étudiants</span>
+                          <span class="item">Collaboration</span>
+                        </div>
+                        <div class="list-item">
+                          <span class="item item-title">Groupes d'Étude</span>
+                          <span class="item">Travail en équipe</span>
+                          <span class="item">Apprentissage social</span>
+                        </div>
+                        <div class="list-item">
+                          <span class="item item-title">Mentorat</span>
+                          <span class="item">Aide par les pairs</span>
+                          <span class="item">Support supplémentaire</span>
+                        </div>
+                        <div class="list-item last-item">
+                          <span class="item item-title">Événements</span>
+                          <span class="item">Webinaires et workshops</span>
+                          <span class="item">Réseautage</span>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="right-content">
+            <h4>Une Plateforme Innovante pour les Étudiants TDSI</h4>
+            <p>TDSI.ai a été créé pour répondre aux besoins spécifiques des étudiants en Transmission de Données et Sécurité de l'Information. Notre plateforme combine technologies avancées et pédagogie innovante pour faciliter votre réussite académique.</p>
+            <p>Que vous soyez en Licence 1, 2, 3 ou en Master, TDSI.ai s'adapte à votre niveau et vous accompagne tout au long de votre parcours universitaire.</p>
+            <div class="green-button">
+              <a href="#register">Rejoindre Maintenant</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="calculator" id="register">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-7">
+          <div class="left-image">
+            <img src="assets/images/tdsi-ai-inscription.png" alt="Inscription TDSI.ai">
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="section-heading">
+            <h6>Rejoignez notre communauté</h6>
+            <h4>Créer votre compte gratuit</h4>
+          </div>
+          <form id="register-form" action="includes/register.php" method="POST" class="register-form">
+            <div class="row">
+              <div class="col-lg-6">
+                <fieldset>
+                  <label for="prenom">Prénom *</label>
+                  <input type="text" name="prenom" id="prenom" placeholder="Votre prénom" autocomplete="given-name" required>
+                </fieldset>
+              </div>
+              <div class="col-lg-6">
+                <fieldset>
+                  <label for="nom">Nom *</label>
+                  <input type="text" name="nom" id="nom" placeholder="Votre nom" autocomplete="family-name" required>
+                </fieldset>
+              </div>
+              <div class="col-lg-12">
+                <fieldset>
+                  <label for="email">Email *</label>
+                  <input type="email" name="email" id="email" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" placeholder="votre@email.com" required>
+                </fieldset>
+              </div>
+              <div class="col-lg-6">
+                <fieldset>
+                  <label for="mot_de_passe">Mot de passe *</label>
+                  <input type="password" name="mot_de_passe" id="mot_de_passe" placeholder="••••••••" required>
+                </fieldset>
+              </div>
+              <div class="col-lg-6">
+                <fieldset>
+                  <label for="confirmation_mot_de_passe">Confirmation *</label>
+                  <input type="password" name="confirmation_mot_de_passe" id="confirmation_mot_de_passe" placeholder="••••••••" required>
+                </fieldset>
+              </div>
+              <div class="col-lg-12">
+                <fieldset>
+                  <label for="niveau_etude" class="form-label">Niveau d'étude *</label>
+                  <select name="niveau_etude" class="form-select" id="niveau_etude" required>
+                      <option value="" selected disabled>Sélectionnez votre niveau</option>
+                      <option value="Licence 1">Licence 1 TDSI</option>
+                      <option value="Licence 2">Licence 2 TDSI</option>
+                      <option value="Licence 3">Licence 3 TDSI</option>
+                      <option value="Master 1">Master 1</option>
+                      <option value="Master 2">Master 2</option>
+                      <option value="Autre">Autre</option>
+                  </select>
+                </fieldset>
+              </div>
+              <div class="col-lg-12">
+                <fieldset>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="accept_conditions" id="accept_conditions" required>
+                    <label class="form-check-label" for="accept_conditions">
+                      J'accepte les <a href="#" style="color: var(--couleur-success);">conditions d'utilisation</a> *
+                    </label>
+                  </div>
+                </fieldset>
+              </div>
+              <div class="col-lg-12">
+                <fieldset>
+                  <button type="submit" id="form-submit" class="orange-button">S'inscrire gratuitement</button>
+                </fieldset>
+              </div>
+              <div class="col-lg-12">
+                <p style="text-align: center; margin-top: 20px; color: #fff;">
+                  Déjà un compte ? <a href="login.php" style="color: var(--couleur-success); font-weight: 600;">Se connecter</a>
+                </p>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+          <div class="section-heading">
+            <h6>Le Créateur</h6>
+            <h4>Présentation du Développeur</h4>
+          </div>
+        </div>
+        <div class="col-lg-10 offset-lg-1">
+          <div class="owl-testimonials owl-carousel" style="position: relative; z-index: 5;">
+            <div class="item">
+            
+              <i class="fa fa-quote-left"></i>
+              <p>Ce chatbot a été développé dans le cadre de mon projet de fin de licence 2 à l'École de Transmission de Données et Sécurité de l'Information. Mon objectif était de créer un outil pédagogique innovant qui puisse aider les étudiants à mieux comprendre les concepts complexes liés à la sécurité informatique et aux transmissions de données.</p>
+              <h4>Ibrahima Khalilou llah Sylla</h4>
+              <span>Étudiant en Licence 2 - TDSI</span>
+            </div>
+            <div class="item">
+            
+              <i class="fa fa-quote-left"></i>
+              <p>Ce projet vise à faciliter l'apprentissage des principes de sécurité informatique et offrir un support interactif pour les étudiants. Il démontre également l'application pratique des connaissances acquises et contribue à enrichir l'écosystème éducatif de notre école avec une approche technologique innovante.</p>
+              <h4>Objectifs du Projet</h4>
+              <span>Innovation Pédagogique & Technologique</span>
+            </div>
+            <div class="item">
+    
+              <i class="fa fa-quote-left"></i>
+              <p>"En tant qu'étudiant passionné par les technologies de l'information et la cybersécurité, j'ai voulu créer un outil qui rendrait l'apprentissage plus accessible et interactif. Ce chatbot représente la synthèse des connaissances acquises et mon engagement à contribuer à notre communauté éducative."</p>
+              <h4>Motivation Personnelle</h4>
+              <span>Passion & Engagement Communautaire</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="partners">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-2 col-sm-4 col-6">
+          <div class="item">
+            <img src="assets/images/tdsi-logo.png" alt="TDSI École">
+          </div>
+        </div>
+        <div class="col-lg-2 col-sm-4 col-6">
+          <div class="item">
+            <img src="assets/images/ai-logo.png" alt="Intelligence Artificielle">
+          </div>
+        </div>
+        <div class="col-lg-2 col-sm-4 col-6">
+          <div class="item">
+            <img src="assets/images/education-logo.png" alt="Éducation">
+          </div>
+        </div>
+        <div class="col-lg-2 col-sm-4 col-6">
+          <div class="item">
+            <img src="assets/images/technology-logo.png" alt="Technologie">
+          </div>
+        </div>
+        <div class="col-lg-2 col-sm-4 col-6">
+          <div class="item">
+            <img src="assets/images/security-logo.png" alt="Sécurité">
+          </div>
+        </div>
+        <div class="col-lg-2 col-sm-4 col-6">
+          <div class="item">
+            <img src="assets/images/innovation-logo.png" alt="Innovation">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <p>Copyright © 2024 TDSI.ai - Projet de Fin d'Année. Tous droits réservés.</p>
+          <p>Développé par Ibrahima Khalilou llah Sylla - Licence 2 TDSI</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <script src="assets/js/isotope.min.js"></script>
+  <script src="assets/js/owl-carousel.js"></script>
+
+  <script src="assets/js/tabs.js"></script>
+  <script src="assets/js/swiper.js"></script>
+  <script src="assets/js/custom.js"></script>
+
+  <script>
+    var interleaveOffset = 0.5;
+
+    var swiperOptions = {
+      loop: true,
+      speed: 1000,
+      grabCursor: true,
+      watchSlidesProgress: true,
+      mousewheelControl: true,
+      keyboardControl: true,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev"
+      },
+      on: {
+        progress: function() {
+          var swiper = this;
+          for (var i = 0; i < swiper.slides.length; i++) {
+            var slideProgress = swiper.slides[i].progress;
+            var innerOffset = swiper.width * interleaveOffset;
+            var innerTranslate = slideProgress * innerOffset;
+            swiper.slides[i].querySelector(".slide-inner").style.transform =
+              "translate3d(" + innerTranslate + "px, 0, 0)";
+          }      
+        },
+        touchStart: function() {
+          var swiper = this;
+          for (var i = 0; i < swiper.slides.length; i++) {
+            swiper.slides[i].style.transition = "";
+          }
+        },
+        setTransition: function(speed) {
+          var swiper = this;
+          for (var i = 0; i < swiper.slides.length; i++) {
+            swiper.slides[i].style.transition = speed + "ms";
+            swiper.slides[i].querySelector(".slide-inner").style.transition =
+              speed + "ms";
+          }
+        }
+      }
+    };
+
+    var swiper = new Swiper(".swiper-container", swiperOptions);
+
+    // Validation du formulaire d'inscription
+    document.getElementById('register-form')?.addEventListener('submit', function(e) {
+      const motDePasse = document.getElementById('mot_de_passe').value;
+      const confirmation = document.getElementById('confirmation_mot_de_passe').value;
+      
+      if (motDePasse !== confirmation) {
+        e.preventDefault();
+        alert('Les mots de passe ne correspondent pas.');
+        return false;
+      }
+      
+      if (motDePasse.length < 6) {
+        e.preventDefault();
+        alert('Le mot de passe doit contenir au moins 6 caractères.');
+        return false;
+      }
+
+      if (!document.getElementById('accept_conditions').checked) {
+        e.preventDefault();
+        alert('Veuillez accepter les conditions d\'utilisation.');
+        return false;
+      }
+    });
+
+    // Afficher les messages d'erreur/succès
+    document.addEventListener('DOMContentLoaded', function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.has('success')) {
+        alert('Inscription réussie ! Vous pouvez maintenant vous connecter.');
+      }
+      if (urlParams.has('error')) {
+        alert('Une erreur est survenue lors de l\'inscription. Veuillez réessayer.');
+      }
+    });
+  </script>
+</body>
+</html>

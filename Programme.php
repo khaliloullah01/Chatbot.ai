@@ -11,14 +11,20 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="CSS/programme.css">
- 
+  <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
 
-  <!-- Bouton menu mobile -->
-  <button class="bouton-menu" id="btn-menu-mobile">
+  <!-- Bouton menu principal -->
+  <button class="bouton-menu-principal" id="btn-menu-principal">
     <i class="fas fa-bars"></i>
   </button>
+
+  <!-- Icone de l'application (visible quand barre masquée) -->
+  <div class="icone-appli" id="icone-appli">
+    <i class="fas fa-graduation-cap"></i>
+    <span>tdsi.ai</span>
+  </div>
 
   <!-- Barre latérale -->
   <div class="barre-laterale" id="barre-laterale">
@@ -34,13 +40,13 @@
 
        <h4><i class="fas fa-th"></i> Mes outils</h4>
       <ul>
-        <li><a href="index.php"><i class="fas fa-comment"></i> tdsi chatbot</a></li>
-        <li><a href="#"><i class="fas fa-search"></i> Historique</a></li>
-        <li><a href="Programme.php"><i class="fas fa-laptop-code"></i> Mon programme</a></li>
-        <li><a href="Bibliotheque.php" class="active"><i class="fas fa-book-open"></i> Bibliothèque</a></li>
-        <li><a href="Cours.php"><i class="fas fa-book"></i> Mes cours</a></li>
+          <li><a href="index.php"><i class="fas fa-comment"></i> tdsi chatbot</a></li>
+          <li><a href="#"><i class="fas fa-search"></i> Historique</a></li>
+          <li><a href="Programme.php" class="active"><i class="fas fa-laptop-code"></i> Mon programme</a></li>
+          <li><a href="Bibliotheque.php"><i class="fas fa-book-open"></i> Bibliothèque</a></li>
+          <li><a href="Cours.php"><i class="fas fa-book"></i> Mes cours</a></li>
       </ul>
-      
+            
       <h4><i class="fas fa-history"></i> Historique des chats</h4>
       <p style="font-size: 13px; color: gray;">Aucun historique de chat</p>
     </div>
@@ -251,5 +257,23 @@
     </div>
   </div>
 
+  <script>
+    // Toggle barre latérale
+    document.getElementById('btn-menu-principal').addEventListener('click', function() {
+      const barreLaterale = document.getElementById('barre-laterale');
+      const iconeAppli = document.getElementById('icone-appli');
+      const icon = this.querySelector('i');
+      
+      barreLaterale.classList.toggle('masquee');
+      
+      if (barreLaterale.classList.contains('masquee')) {
+        icon.className = 'fas fa-bars';
+        iconeAppli.style.display = 'flex';
+      } else {
+        icon.className = 'fas fa-times';
+        iconeAppli.style.display = 'none';
+      }
+    });
+  </script>
 </body>
 </html>

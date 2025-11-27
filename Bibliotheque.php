@@ -16,10 +16,16 @@
 </head>
 <body>
 
-  <!-- Bouton menu mobile -->
-  <button class="bouton-menu" id="btn-menu-mobile">
+  <!-- Bouton menu principal -->
+  <button class="bouton-menu-principal" id="btn-menu-principal">
     <i class="fas fa-bars"></i>
   </button>
+
+  <!-- Icone de l'application (visible quand barre masquée) -->
+  <div class="icone-appli" id="icone-appli">
+    <i class="fas fa-graduation-cap"></i>
+    <span>tdsi.ai</span>
+  </div>
 
   <!-- Barre latérale -->
   <div class="barre-laterale" id="barre-laterale">
@@ -28,18 +34,18 @@
         <h3><i class="fas fa-graduation-cap"></i>tdsi.ai</h3>
         <p>Votre assistant pédagogique</p>
       </div>
-      
+    
       <button class="btn-nouvelle-conversation" id="btn-nouvelle-conversation">
         <i class="fas fa-plus"></i> Nouveau chat
       </button>
 
        <h4><i class="fas fa-th"></i> Mes outils</h4>
       <ul>
-        <li><a href="index.php"><i class="fas fa-comment"></i> tdsi chatbot</a></li>
-        <li><a href="#"><i class="fas fa-search"></i> Historique</a></li>
-        <li><a href="Programme.php"><i class="fas fa-laptop-code"></i> Mon programme</a></li>
-        <li><a href="Bibliotheque.php" class="active"><i class="fas fa-book-open"></i> Bibliothèque</a></li>
-        <li><a href="Cours.php"><i class="fas fa-book"></i> Mes cours</a></li>
+          <li><a href="index.php"><i class="fas fa-comment"></i> tdsi chatbot</a></li>
+          <li><a href="#"><i class="fas fa-search"></i> Historique</a></li>
+          <li><a href="Programme.php"><i class="fas fa-laptop-code"></i> Mon programme</a></li>
+          <li><a href="Bibliotheque.php" class="active"><i class="fas fa-book-open"></i> Bibliothèque</a></li>
+          <li><a href="Cours.php"><i class="fas fa-book"></i> Mes cours</a></li>
       </ul>
       
       <h4><i class="fas fa-history"></i> Historique des chats</h4>
@@ -77,10 +83,28 @@
     </div>
     
     <div class="niveaux-container" id="niveaux-container">
-      <!-- Les contenus seront chargés dynamiquement par JavaScript -->
+      <!-- Les contenus seront chargés dynamiquement par mon js -->
     </div>
   </div>
 
   <script src="JS/bibliotheque.js"></script>
+  <script>
+    // Toggle barre latérale
+    document.getElementById('btn-menu-principal').addEventListener('click', function() {
+      const barreLaterale = document.getElementById('barre-laterale');
+      const iconeAppli = document.getElementById('icone-appli');
+      const icon = this.querySelector('i');
+      
+      barreLaterale.classList.toggle('masquee');
+      
+      if (barreLaterale.classList.contains('masquee')) {
+        icon.className = 'fas fa-bars';
+        iconeAppli.style.display = 'flex';
+      } else {
+        icon.className = 'fas fa-times';
+        iconeAppli.style.display = 'none';
+      }
+    });
+  </script>
 </body>
 </html>
