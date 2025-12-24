@@ -1,32 +1,94 @@
-/* Styles spécifiques à la page Bibliothèque */
+/* CSS/bibliotheque.css - Version refondue avec style cohérent */
+
+/* ===== VARIABLES COHÉRENTES AVEC L'APP ===== */
 :root {
+  /* Couleurs principales de l'app */
   --couleur-principale: #133ebe;
-  --couleur-secondaire: #f8f9fc;
-  --couleur-texte: #5a5c69;
+  --couleur-secondaire: #2e59d9;
+  --couleur-accent: #e74c3c;
+  --couleur-success: #133ebe;
+  --couleur-warning: #f6c23e;
+  
+  /* Couleurs de texte */
+  --couleur-texte-principal: #000000;
+  --couleur-texte-secondaire: #7f8c8d;
+  --couleur-texte-bright: #ffffff;
+  
+  /* Bordures et fonds */
   --couleur-border: #e3e6f0;
-  --couleur-licence1: #4e73df;
-  --couleur-licence2: #1cc88a;
-  --couleur-licence3: #36b9cc;
-  --couleur-master1: #f6c23e;
-  --couleur-master2: #e74a3b;
+  --couleur-barre-laterale: #ffffff;
+  --couleur-code-fond: #f1f3f6;
+  --couleur-selection-active: #e8f2fc;
+  
+  /* Couleurs spécifiques aux niveaux */
+  --couleur-licence1: #133ebe;    /* Bleu principal */
+  --couleur-licence2: #133ebe;    /* Vert TDSI */
+  --couleur-licence3: #133ebe;    /* Orange */
+  --couleur-master1: #133ebe;     /* Jaune */
+  --couleur-master2: #133ebe;     /* Rouge */
 }
 
-.en-tete-page {
+/* ===== STRUCTURE PRINCIPALE ===== */
+.contenu-bibliotheque {
+  margin-top: 80px;
+  min-height: calc(100vh - 80px);
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: 30px 0;
+}
+
+.container-bibliotheque {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ===== EN-TÊTE ===== */
+.en-tete-bibliotheque {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 25px;
-  flex-wrap: wrap;
+  margin-bottom: 30px;
+  padding: 25px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border-left: 4px solid var(--couleur-principale);
+  position: relative;
+  overflow: hidden;
+}
+
+.en-tete-bibliotheque::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(135deg, var(--couleur-principale), var(--couleur-secondaire));
+}
+
+.titre-bibliotheque {
+  display: flex;
+  align-items: center;
   gap: 15px;
-  margin-left: 90px;
 }
 
-.en-tete-page h1 {
-  color: var(--couleur-principale);
-  font-weight: 700;
+.titre-bibliotheque i {
+  font-size: 2rem;
+  background: linear-gradient(135deg, var(--couleur-principale), var(--couleur-secondaire));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.titre-bibliotheque h1 {
   margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--couleur-texte-principal);
 }
 
+/* Recherche */
 .search-box {
   position: relative;
   display: flex;
@@ -34,170 +96,233 @@
 }
 
 .search-box input {
-  padding: 10px 15px 10px 40px;
-  border: 1px solid var(--couleur-border);
-  border-radius: 20px;
-  font-size: 0.9rem;
-  width: 250px;
+  padding: 12px 15px 12px 45px;
+  border: 2px solid var(--couleur-border);
+  border-radius: 25px;
+  font-size: 1rem;
+  width: 300px;
   transition: all 0.3s;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-family: inherit;
 }
 
 .search-box input:focus {
   outline: none;
   border-color: var(--couleur-principale);
-  box-shadow: 0 0 0 0.2rem rgba(19, 62, 190, 0.25);
+  box-shadow: 0 4px 15px rgba(19, 62, 190, 0.2);
 }
 
 .search-box i {
   position: absolute;
-  left: 15px;
-  color: #858796;
+  left: 20px;
+  color: var(--couleur-principale);
+  font-size: 1rem;
 }
 
+/* ===== FILTRES ===== */
 .filtres {
   display: flex;
   gap: 10px;
-  margin-bottom: 25px;
+  margin-bottom: 30px;
   flex-wrap: wrap;
-  margin-left: 30px;
+  justify-content: center;
 }
 
 .btn-filtre {
   background: white;
-  border: 1px solid var(--couleur-border);
-  padding: 8px 16px;
-  border-radius: 20px;
+  border: 2px solid var(--couleur-border);
+  padding: 10px 20px;
+  border-radius: 25px;
   font-size: 0.9rem;
-  color: var(--couleur-texte);
+  color: var(--couleur-texte-principal);
   transition: all 0.3s;
   cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-family: inherit;
 }
 
-.btn-filtre:hover, .btn-filtre.active {
+.btn-filtre:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.btn-filtre.active {
   background: var(--couleur-principale);
   color: white;
   border-color: var(--couleur-principale);
+  box-shadow: 0 4px 15px rgba(19, 62, 190, 0.3);
 }
 
-.niveaux-container {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  margin-left: 30px;
+/* Couleurs spécifiques pour les filtres */
+.btn-filtre.l1.active { background: var(--couleur-licence1); border-color: var(--couleur-licence1); }
+.btn-filtre.l2.active { background: var(--couleur-licence2); border-color: var(--couleur-licence2); }
+.btn-filtre.l3.active { background: var(--couleur-licence3); border-color: var(--couleur-licence3); }
+.btn-filtre.m1.active { background: var(--couleur-master1); border-color: var(--couleur-master1); }
+.btn-filtre.m2.active { background: var(--couleur-master2); border-color: var(--couleur-master2); }
+
+/* ===== CONTENEUR DES COURS ===== */
+.conteneur-cours {
+  background: transparent;
 }
 
+/* ===== NIVEAUX ET SECTIONS ===== */
 .niveau-section {
-  background: white;
-  border-radius: 12px;
-  padding: 25px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  background: transparent;
+  margin-bottom: 40px;
+  animation: fadeIn 0.5s ease;
 }
 
-.niveau-titre {
-  color: var(--couleur-principale);
-  font-size: 1.5rem;
-  margin-bottom: 20px;
-  padding-bottom: 10px;
-  border-bottom: 2px solid var(--couleur-border);
+.en-tete-niveau {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 10px;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid var(--couleur-border);
 }
 
-.niveau-titre.licence1 { color: var(--couleur-licence1); border-bottom-color: var(--couleur-licence1); }
-.niveau-titre.licence2 { color: var(--couleur-licence2); border-bottom-color: var(--couleur-licence2); }
-.niveau-titre.licence3 { color: var(--couleur-licence3); border-bottom-color: var(--couleur-licence3); }
-.niveau-titre.master1 { color: var(--couleur-master1); border-bottom-color: var(--couleur-master1); }
-.niveau-titre.master2 { color: var(--couleur-master2); border-bottom-color: var(--couleur-master2); }
+.titre-niveau {
+  font-size: 1.5rem;
+  color: var(--couleur-texte-principal);
+  margin: 0;
+  font-weight: 600;
+}
 
+.badge-nombre {
+  background: var(--couleur-principale);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* ===== GRILLE DE COURS ===== */
 .grille-cours {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 25px;
 }
 
+/* ===== CARTE DE COURS ===== */
 .carte-cours {
   background: white;
-  border-radius: 12px;
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s, box-shadow 0.3s;
-  border-top: 4px solid var(--couleur-principale);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border: 1px solid var(--couleur-border);
+  position: relative;
+  animation: slideUp 0.4s ease;
 }
 
 .carte-cours:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.32);
 }
 
-.carte-cours.licence1 { border-top-color: var(--couleur-licence1); }
-.carte-cours.licence2 { border-top-color: var(--couleur-licence2); }
-.carte-cours.licence3 { border-top-color: var(--couleur-licence3); }
-.carte-cours.master1 { border-top-color: var(--couleur-master1); }
-.carte-cours.master2 { border-top-color: var(--couleur-master2); }
+/* Bordure colorée selon le niveau */
+.carte-cours.l1 { border-top: 4px solid var(--couleur-licence1); box-shadow: 0 2px 12px rgba(0, 0, 0, 0.32); }
+.carte-cours.l2 { border-top: 4px solid var(--couleur-licence2); box-shadow: 0 2px 12px rgba(0, 0, 0, 0.32); }
+.carte-cours.l3 { border-top: 4px solid var(--couleur-licence3); box-shadow: 0 2px 12px rgba(0, 0, 0, 0.32); }
+.carte-cours.m1 { border-top: 4px solid var(--couleur-master1); box-shadow: 0 2px 12px rgba(0, 0, 0, 0.32); }
+.carte-cours.m2 { border-top: 4px solid var(--couleur-master2); box-shadow: 0 2px 12px rgba(0, 0, 0, 0.32); }
 
+/* En-tête de la carte */
 .en-tete-carte {
-  height: 120px;
-  background: var(--couleur-principale);
+  height: 95px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
-  font-size: 2.5rem;
+  position: relative;
+  overflow: hidden;
 }
 
-.en-tete-carte.licence1 { background: var(--couleur-licence1); }
-.en-tete-carte.licence2 { background: var(--couleur-licence2); }
-.en-tete-carte.licence3 { background: var(--couleur-licence3); }
-.en-tete-carte.master1 { background: var(--couleur-master1); }
-.en-tete-carte.master2 { background: var(--couleur-master2); }
+.en-tete-carte i {
+  font-size: 2.5rem;
+  color: white;
+  z-index: 1;
+}
 
+.en-tete-carte::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+}
+
+.en-tete-carte.l1 { background: linear-gradient(135deg, var(--couleur-licence1), #0d319b); }
+.en-tete-carte.l2 { background: linear-gradient(135deg, var(--couleur-licence2), #0d319b); }
+.en-tete-carte.l3 { background: linear-gradient(135deg, var(--couleur-licence3), #0d319b); }
+.en-tete-carte.m1 { background: linear-gradient(135deg, var(--couleur-master1), #0d319b); }
+.en-tete-carte.m2 { background: linear-gradient(135deg, var(--couleur-master2), #0d319b); }
+
+/* Corps de la carte */
 .corps-carte {
-  padding: 20px;
+  padding: 15px;
 }
 
 .corps-carte h3 {
-  margin: 0 0 10px 0;
-  color: var(--couleur-principale);
-  font-size: 1.2rem;
+  margin: 0 0 15px 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--couleur-texte-principal);
 }
 
-.corps-carte h3.licence1 { color: var(--couleur-licence1); }
-.corps-carte h3.licence2 { color: var(--couleur-licence2); }
-.corps-carte h3.licence3 { color: var(--couleur-licence3); }
-.corps-carte h3.master1 { color: var(--couleur-master1); }
-.corps-carte h3.master2 { color: var(--couleur-master2); }
+.corps-carte h3.l1 { color: var(--couleur-licence1); }
+.corps-carte h3.l2 { color: var(--couleur-licence2); }
+.corps-carte h3.l3 { color: var(--couleur-licence3); }
+.corps-carte h3.m1 { color: var(--couleur-master1); }
+.corps-carte h3.m2 { color: var(--couleur-master2); }
 
 .description-cours {
-  color: var(--couleur-texte);
-  font-size: 0.9rem;
-  margin-bottom: 15px;
+  color: var(--couleur-texte-secondaire);
+  font-size: 0.95rem;
+  margin-bottom: 20px;
   line-height: 1.5;
+  min-height: 60px;
 }
 
 .details-cours {
   display: flex;
   justify-content: space-between;
   font-size: 0.85rem;
-  color: #858796;
-  margin-bottom: 20px;
+  color: var(--couleur-texte-secondaire);
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--couleur-border);
+  font-weight: 500;
 }
 
+/* ===== ACTIONS DES COURS ===== */
 .actions-cours {
   display: flex;
   gap: 10px;
+  padding: 0 25px 25px;
 }
 
 .btn-action {
   flex: 1;
   text-align: center;
-  padding: 8px 0;
-  border-radius: 6px;
+  padding: 12px 0;
+  border-radius: 8px;
   font-size: 0.85rem;
   font-weight: 600;
-  transition: all 0.3s;
-  text-decoration: none;
-  display: block;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-family: inherit;
 }
 
 .btn-voir {
@@ -206,112 +331,439 @@
 }
 
 .btn-voir:hover {
-  background: #2e59d9;
+  background: var(--couleur-secondaire);
   color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(19, 62, 190, 0.3);
 }
 
 .btn-telecharger {
-  background: #eaecf4;
+  background: rgba(19, 62, 190, 0.1);
   color: var(--couleur-principale);
+  border: 1px solid var(--couleur-border);
 }
 
 .btn-telecharger:hover {
-  background: #d8dbe4;
+  background: var(--couleur-principale);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(19, 62, 190, 0.3);
+  border-color: var(--couleur-principale);
 }
 
-/* Styles pour les boutons adaptés aux couleurs de niveau */
-.btn-voir.licence1 {
-  background: var(--couleur-licence1);
-}
-.btn-voir.licence1:hover {
-  background: #3a5fdc;
-}
-
-.btn-voir.licence2 {
-  background: var(--couleur-licence2);
-}
-.btn-voir.licence2:hover {
-  background: #17a673;
+/* ===== VUE DÉTAILLÉE DE LA MATIÈRE ===== */
+.detail-matiere {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  animation: fadeIn 0.4s ease;
 }
 
-.btn-voir.licence3 {
-  background: var(--couleur-licence3);
-}
-.btn-voir.licence3:hover {
-  background: #2ca0b8;
-}
-
-.btn-voir.master1 {
-  background: var(--couleur-master1);
-}
-.btn-voir.master1:hover {
-  background: #e4b22a;
+.header-detail {
+  background: linear-gradient(135deg, var(--couleur-principale), var(--couleur-secondaire));
+  color: white;
+  padding: 25px 30px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+  overflow: hidden;
 }
 
-.btn-voir.master2 {
-  background: var(--couleur-master2);
-}
-.btn-voir.master2:hover {
-  background: #d63a2b;
+.header-detail::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+  animation: shimmer 3s infinite;
 }
 
-/* Styles pour les boutons de téléchargement */
-.btn-telecharger.licence1 {
-  color: var(--couleur-licence1);
-  border: 1px solid var(--couleur-licence1);
+.btn-retour {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: inherit;
+  font-weight: 600;
+  z-index: 1;
 }
-.btn-telecharger.licence1:hover {
-  background: var(--couleur-licence1);
+
+.btn-retour:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateX(-5px);
+}
+
+.titre-detail {
+  flex: 1;
+  z-index: 1;
+}
+
+.titre-detail h1 {
+  margin: 0 0 10px 0;
+  font-size: 1.8rem;
   color: white;
 }
 
-.btn-telecharger.licence2 {
-  color: var(--couleur-licence2);
-  border: 1px solid var(--couleur-licence2);
+.badge-niveau {
+  padding: 6px 16px;
+  border-radius: 20px;
+  color: white;
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: inline-block;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
-.btn-telecharger.licence2:hover {
-  background: var(--couleur-licence2);
+
+.badge-niveau.l1 { background: var(--couleur-licence1); }
+.badge-niveau.l2 { background: var(--couleur-licence2); }
+.badge-niveau.l3 { background: var(--couleur-licence3); }
+.badge-niveau.m1 { background: var(--couleur-master1); }
+.badge-niveau.m2 { background: var(--couleur-master2); }
+
+.contenu-detail {
+  padding: 30px;
+}
+
+/* ===== RÉSUMÉ DE LA MATIÈRE ===== */
+.resume-matiere {
+  background: linear-gradient(135deg, var(--couleur-principale), var(--couleur-secondaire));
+  color: white;
+  padding: 25px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 15px rgba(19, 62, 190, 0.3);
+}
+
+.resume-matiere h4 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.stats-matiere {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+}
+
+.stat {
+  text-align: center;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.stat i {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  display: block;
   color: white;
 }
 
-.btn-telecharger.licence3 {
-  color: var(--couleur-licence3);
-  border: 1px solid var(--couleur-licence3);
-}
-.btn-telecharger.licence3:hover {
-  background: var(--couleur-licence3);
-  color: white;
+.stat span {
+  font-size: 0.95rem;
+  opacity: 0.9;
+  font-weight: 500;
 }
 
-.btn-telecharger.master1 {
-  color: var(--couleur-master1);
-  border: 1px solid var(--couleur-master1);
-}
-.btn-telecharger.master1:hover {
-  background: var(--couleur-master1);
-  color: white;
+/* ===== CHAPITRES ===== */
+.chapitres-container {
+  margin-top: 30px;
 }
 
-.btn-telecharger.master2 {
-  color: var(--couleur-master2);
-  border: 1px solid var(--couleur-master2);
-}
-.btn-telecharger.master2:hover {
-  background: var(--couleur-master2);
-  color: white;
+.chapitres-container h3 {
+  color: var(--couleur-principale);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--couleur-border);
 }
 
-/* Responsive */
+.liste-chapitres {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.carte-chapitre {
+  background: var(--couleur-barre-laterale);
+  border-radius: 12px;
+  padding: 20px;
+  border-left: 4px solid var(--couleur-secondaire);
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.carte-chapitre:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  background: white;
+}
+
+.header-chapitre {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.header-chapitre h4 {
+  margin: 0;
+  color: var(--couleur-texte-principal);
+  flex: 1;
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.badge-ressources {
+  background: var(--couleur-principale);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.description-chapitre {
+  color: var(--couleur-texte-secondaire);
+  line-height: 1.6;
+  margin-bottom: 20px;
+  font-style: italic;
+  border-left: 3px solid var(--couleur-border);
+  padding-left: 15px;
+}
+
+/* ===== RESSOURCES ===== */
+.ressources-chapitre h5 {
+  color: var(--couleur-texte-principal);
+  margin-bottom: 15px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.liste-ressources {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ressource-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 15px;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid var(--couleur-border);
+  transition: all 0.3s ease;
+}
+
+.ressource-item:hover {
+  border-color: var(--couleur-principale);
+  box-shadow: 0 3px 10px rgba(19, 62, 190, 0.1);
+  transform: translateX(5px);
+}
+
+.ressource-item i {
+  color: var(--couleur-principale);
+  font-size: 1.2rem;
+  width: 24px;
+  text-align: center;
+  margin-right: 12px;
+}
+
+.nom-ressource {
+  flex: 1;
+  color: var(--couleur-texte-principal);
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.actions-ressource {
+  display: flex;
+  gap: 5px;
+}
+
+.btn-voir-ressource,
+.btn-telecharger-ressource {
+  background: none;
+  border: none;
+  padding: 6px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: var(--couleur-principale);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-voir-ressource:hover {
+  background: rgba(19, 62, 190, 0.1);
+  color: var(--couleur-principale);
+}
+
+.btn-telecharger-ressource:hover {
+  background: rgba(28, 200, 138, 0.1);
+  color: var(--couleur-success);
+}
+
+.aucune-ressource {
+  color: var(--couleur-texte-secondaire);
+  font-style: italic;
+  text-align: center;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  border: 2px dashed var(--couleur-border);
+}
+
+/* ===== ÉTATS ===== */
+.etat-vide, .etat-erreur, .chargement-contenu {
+  text-align: center;
+  padding: 60px 20px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  margin: 20px 0;
+}
+
+.icone-vide {
+  font-size: 4rem;
+  color: var(--couleur-border);
+  margin-bottom: 20px;
+}
+
+.etat-vide h3, .etat-erreur h3 {
+  color: var(--couleur-texte-secondaire);
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.etat-vide p, .etat-erreur p {
+  color: var(--couleur-texte-secondaire);
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+}
+
+.spinner-chargement {
+  font-size: 2rem;
+  color: var(--couleur-principale);
+  margin-bottom: 15px;
+  animation: spin 1.5s linear infinite;
+}
+
+.etat-erreur i {
+  font-size: 2.5rem;
+  color: var(--couleur-accent);
+  margin-bottom: 20px;
+}
+
+.btn-secondaire {
+  background: var(--couleur-principale);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  font-weight: 600;
+}
+
+.btn-secondaire:hover {
+  background: var(--couleur-secondaire);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(19, 62, 190, 0.3);
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* ===== RESPONSIVE ===== */
 @media (max-width: 992px) {
   .grille-cours {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   }
 }
 
 @media (max-width: 768px) {
-  .en-tete-page {
+  .contenu-bibliotheque {
+    margin-top: 70px;
+    padding: 20px 0;
+  }
+  
+  .container-bibliotheque {
+    padding: 0 15px;
+  }
+  
+  .en-tete-bibliotheque {
     flex-direction: column;
-    align-items: flex-start;
+    gap: 20px;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .titre-bibliotheque {
+    flex-direction: column;
+    gap: 10px;
   }
   
   .search-box {
@@ -322,75 +774,1346 @@
     width: 100%;
   }
   
-  .grille-cours {
-    grid-template-columns: 1fr;
-  }
-  
   .filtres {
     overflow-x: auto;
     padding-bottom: 10px;
-    flex-wrap: nowrap;
+    justify-content: flex-start;
+  }
+  
+  .grille-cours {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .header-detail {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .btn-retour {
+    align-self: flex-start;
+  }
+  
+  .stats-matiere {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .actions-cours {
+    flex-direction: column;
+  }
+  
+  .btn-action {
+    width: 100%;
   }
 }
-/* Ajouts pour les boutons de filtre colorés */
-.btn-filtre.licence1.active {
-  background: var(--couleur-licence1);
-  border-color: var(--couleur-licence1);
-  color: white;
+
+@media (max-width: 480px) {
+  .contenu-bibliotheque {
+    padding: 15px 0;
+  }
+  
+  .container-bibliotheque {
+    padding: 0 10px;
+  }
+  
+  .en-tete-bibliotheque {
+    padding: 15px;
+  }
+  
+  .titre-bibliotheque h1 {
+    font-size: 1.5rem;
+  }
+  
+  .titre-niveau {
+    font-size: 1.3rem;
+  }
+  
+  .grille-cours {
+    gap: 15px;
+  }
+  
+  .corps-carte {
+    padding: 20px;
+  }
+  
+  .contenu-detail {
+    padding: 20px;
+  }
+  
+  .header-chapitre {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .ressource-item {
+    flex-wrap: wrap;
+  }
+  
+  .nom-ressource {
+    flex-basis: 100%;
+    margin-bottom: 10px;
+  }
 }
 
-.btn-filtre.licence2.active {
-  background: var(--couleur-licence2);
-  border-color: var(--couleur-licence2);
-  color: white;
+/* ===== SCROLLBAR PERSONNALISÉE ===== */
+#niveaux-container::-webkit-scrollbar,
+.contenu-detail::-webkit-scrollbar {
+  width: 8px;
 }
 
-.btn-filtre.licence3.active {
-  background: var(--couleur-licence3);
-  border-color: var(--couleur-licence3);
-  color: white;
+#niveaux-container::-webkit-scrollbar-track,
+.contenu-detail::-webkit-scrollbar-track {
+  background: var(--couleur-barre-laterale);
+  border-radius: 4px;
 }
 
-.btn-filtre.master1.active {
-  background: var(--couleur-master1);
-  border-color: var(--couleur-master1);
-  color: white;
+#niveaux-container::-webkit-scrollbar-thumb,
+.contenu-detail::-webkit-scrollbar-thumb {
+  background: var(--couleur-secondaire);
+  border-radius: 4px;
 }
 
-.btn-filtre.master2.active {
-  background: var(--couleur-master2);
-  border-color: var(--couleur-master2);
-  color: white;
-}
-/* Styles pour les notifications de la bibliothèque */
-.notification-toast.bibliotheque-notification {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 14px;
-    font-weight: 500;
+#niveaux-container::-webkit-scrollbar-thumb:hover,
+.contenu-detail::-webkit-scrollbar-thumb:hover {
+  background: var(--couleur-principale);
 }
 
-/* Animation pour le bouton de téléchargement */
-.btn-telecharger {
+/* ===== ACCESSIBILITÉ ===== */
+.btn-filtre:focus-visible,
+.btn-action:focus-visible,
+.btn-retour:focus-visible,
+.btn-voir-ressource:focus-visible,
+.btn-telecharger-ressource:focus-visible {
+  outline: 3px solid var(--couleur-secondaire);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+.search-box input:focus-visible {
+  outline: none;
+  border-color: var(--couleur-principale);
+  box-shadow: 0 0 0 3px rgba(19, 62, 190, 0.2);
+}
+
+/* ===== EFFETS DE TRANSITION ===== */
+.carte-cours,
+.detail-matiere,
+.carte-chapitre,
+.ressource-item {
+  will-change: transform, box-shadow;
+}
+
+/* Style pour les cartes personnelles */
+.carte-cours.l1-perso { border-top-color: #8a2be2; } /* Violet pour L1 personnel */
+.carte-cours.l2-perso { border-top-color: #20b2aa; } /* Turquoise pour L2 personnel */
+.carte-cours.l3-perso { border-top-color: #ff8c00; } /* Orange foncé pour L3 personnel */
+.carte-cours.m1-perso { border-top-color: #daa520; } /* Or pour M1 personnel */
+.carte-cours.m2-perso { border-top-color: #dc143c; } /* Rouge pour M2 personnel */
+
+.en-tete-carte.l1-perso { background: linear-gradient(135deg, #8a2be2, #9370db); }
+.en-tete-carte.l2-perso { background: linear-gradient(135deg, #20b2aa, #48d1cc); }
+.en-tete-carte.l3-perso { background: linear-gradient(135deg, #ff8c00, #ffa500); }
+.en-tete-carte.m1-perso { background: linear-gradient(135deg, #daa520, #ffd700); }
+.en-tete-carte.m2-perso { background: linear-gradient(135deg, #dc143c, #ff6347); }
+
+.badge-personnel {
+    background: linear-gradient(135deg, #8a2be2, #20b2aa);
+    color: white;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    margin-left: 5px;
+}
+
+.actions-bibliotheque {
+    margin-left: 20px;
+}
+
+.actions-bibliotheque .btn-success {
+    background: linear-gradient(135deg, #28a745, #20c997);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
     transition: all 0.3s ease;
 }
 
-.btn-telecharger:hover {
+.actions-bibliotheque .btn-success:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
 }
 
-/* Indicateur de chargement */
-.loading-indicator {
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    border: 2px solid #ffffff;
+/* ===== AMÉLIORATIONS POUR LES BOUTONS FAVORIS ===== */
+
+/* Conteneur header-carte pour l'alignement */
+.header-carte {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.header-carte h3 {
+    margin: 0;
+    flex: 1;
+    padding-right: 40px; /* Espace pour le bouton favori */
+}
+
+/* Bouton favori - Version améliorée */
+.btn-favori {
+    background: white;
+    border: 2px solid #e3e6f0;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
-    border-top-color: transparent;
-    animation: spin 1s ease-in-out infinite;
-    margin-right: 8px;
+    color: #ccc;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-favori:hover {
+    color: #ffc107;
+    border-color: #ffc107;
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(255, 193, 7, 0.3);
+}
+
+.btn-favori.favori-actif {
+    color: white;
+    background: linear-gradient(135deg, #ffc107, #ff9800);
+    border-color: #ffc107;
+    box-shadow: 0 4px 15px rgba(255, 193, 7, 0.3);
+    animation: pulse 1.5s infinite;
+}
+
+.btn-favori.favori-actif:hover {
+    background: linear-gradient(135deg, #ff9800, #ff5722);
+    transform: scale(1.1) rotate(15deg);
+}
+
+/* Animation pour les favoris actifs */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(255, 193, 7, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 193, 7, 0);
+    }
+}
+
+/* ===== BOUTON "VOIR MES FAVORIS" - Version améliorée ===== */
+.actions-bibliotheque .btn-favoris {
+    background: linear-gradient(135deg, #ffc107, #ff9800);
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-weight: 600;
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 193, 7, 0.3);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.actions-bibliotheque .btn-favoris:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255, 193, 7, 0.4);
+    background: linear-gradient(135deg, #ff9800, #ff5722);
+    color: white;
+}
+
+.actions-bibliotheque .btn-favoris:active {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 10px rgba(255, 193, 7, 0.3);
+}
+
+/* ===== AMÉLIORATIONS POUR LES BADGES ===== */
+.badge-perso {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 8px rgba(106, 17, 203, 0.2);
+}
+
+.badge-favori {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: linear-gradient(135deg, #ffc107, #ff9800);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    z-index: 2;
+    box-shadow: 0 2px 8px rgba(255, 193, 7, 0.3);
+    animation: slideIn 0.5s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ===== AMÉLIORATIONS POUR LA PAGE MES_COURS ===== */
+.page-mes-cours .carte-cours {
+    border: 2px solid rgba(255, 193, 7, 0.2);
+}
+
+.page-mes-cours .carte-cours:hover {
+    border-color: #ffc107;
+    box-shadow: 0 10px 30px rgba(255, 193, 7, 0.15);
+}
+
+/* Indicateur de favori sur les cartes de mes_cours */
+.carte-cours::after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 8px;
+    height: 8px;
+    background: #ffc107;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.page-mes-cours .carte-cours::after {
+    opacity: 1;
+    animation: blink 2s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* ===== AMÉLIORATIONS RESPONSIVES ===== */
+@media (max-width: 768px) {
+    .header-carte {
+        flex-wrap: wrap;
+    }
+    
+    .header-carte h3 {
+        padding-right: 45px;
+        font-size: 1.1rem;
+    }
+    
+    .btn-favori {
+        width: 32px;
+        height: 32px;
+        font-size: 0.9rem;
+    }
+    
+    .badge-perso {
+        font-size: 0.7rem;
+        padding: 4px 10px;
+    }
+    
+    .actions-bibliotheque .btn-favoris {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+/* ===== EFFETS DE SURVOL SUR LES CARTES ===== */
+.carte-cours {
+    position: relative;
+    overflow: hidden;
+}
+
+.carte-cours::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--couleur-licence1), var(--couleur-licence2), var(--couleur-licence3));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.carte-cours:hover::before {
+    opacity: 1;
+}
+
+/* Effet de lueur sur les cartes favorites */
+.page-mes-cours .carte-cours {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.32);
+}
+
+.page-mes-cours .carte-cours:hover {
+    box-shadow: 0 8px 30px rgba(255, 193, 7, 0.2);
+}
+
+/* ===== TRANSITION DOUCE POUR LES ÉTATS ===== */
+.btn-favori,
+.actions-bibliotheque .btn-favoris,
+.carte-cours {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* ===== STYLES POUR LES ÉTATS VIDES ===== */
+.etat-vide {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border: 2px dashed #dee2e6;
+    padding: 60px 30px;
+    border-radius: 16px;
+    text-align: center;
+}
+
+.etat-vide .icone-vide {
+    font-size: 3rem;
+    color: #adb5bd;
+    margin-bottom: 20px;
+    display: inline-block;
+    padding: 20px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.etat-vide h3 {
+    color: #495057;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.etat-vide p {
+    color: #6c757d;
+    margin-bottom: 30px;
+    line-height: 1.6;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Badge de compteur pour les favoris */
+.badge-count {
+    background: white;
+    color: #ff9800;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-left: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+/* ===== STYLES POUR LA VUE DÉTAILLÉE DANS MES_COURS ===== */
+.detail-matiere {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    animation: fadeIn 0.4s ease;
+}
+
+.header-detail {
+    background: linear-gradient(135deg, #133ebe, #0d2e8a);
+    color: white;
+    padding: 25px 30px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.header-detail::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+    animation: shimmer 3s infinite;
+}
+
+.btn-retour {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: inherit;
+    font-weight: 600;
+    z-index: 1;
+}
+
+.btn-retour:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateX(-5px);
+}
+
+.titre-detail {
+    flex: 1;
+    z-index: 1;
+}
+
+.titre-detail h1 {
+    margin: 0 0 10px 0;
+    font-size: 1.8rem;
+    color: white;
+}
+
+.badge-niveau {
+    padding: 6px 16px;
+    border-radius: 20px;
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: inline-block;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.badge-niveau.l1 { background: #133ebe; }
+.badge-niveau.l2 { background: #0abb77; }
+.badge-niveau.l3 { background: #fa9016; }
+.badge-niveau.m1 { background: #f6c23e; }
+.badge-niveau.m2 { background: #e74a3b; }
+.badge-niveau.l1-perso { background: #8a2be2; }
+.badge-niveau.l2-perso { background: #20b2aa; }
+.badge-niveau.l3-perso { background: #ff8c00; }
+.badge-niveau.m1-perso { background: #daa520; }
+.badge-niveau.m2-perso { background: #dc143c; }
+
+.contenu-detail {
+    padding: 30px;
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+/* Résumé de la matière */
+.resume-matiere {
+    background: linear-gradient(135deg, #133ebe, #0d2e8a);
+    color: white;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 15px rgba(19, 62, 190, 0.3);
+}
+
+.resume-matiere h4 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.stats-matiere {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+}
+
+.stat {
+    text-align: center;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.stat i {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    display: block;
+    color: white;
+}
+
+.stat span {
+    font-size: 0.95rem;
+    opacity: 0.9;
+    font-weight: 500;
+}
+
+/* Chapitres */
+.chapitres-container {
+    margin-top: 30px;
+}
+
+.chapitres-container h3 {
+    color: #133ebe;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e3e6f0;
+}
+
+.liste-chapitres {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.carte-chapitre {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    border-left: 4px solid #133ebe;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.carte-chapitre:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    background: #f8f9fa;
+}
+
+.header-chapitre {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.header-chapitre h4 {
+    margin: 0;
+    color: #000000;
+    flex: 1;
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.badge-ressources {
+    background: #133ebe;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.description-chapitre {
+    color: #7f8c8d;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    font-style: italic;
+    border-left: 3px solid #e3e6f0;
+    padding-left: 15px;
+}
+
+/* Ressources */
+.ressources-chapitre h5 {
+    color: #000000;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.liste-ressources {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.ressource-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    background: white;
+    border-radius: 8px;
+    border: 1px solid #e3e6f0;
+    transition: all 0.3s ease;
+}
+
+.ressource-item:hover {
+    border-color: #133ebe;
+    box-shadow: 0 3px 10px rgba(19, 62, 190, 0.1);
+    transform: translateX(5px);
+}
+
+.ressource-item i {
+    color: #133ebe;
+    font-size: 1.2rem;
+    width: 24px;
+    text-align: center;
+    margin-right: 12px;
+}
+
+.nom-ressource {
+    flex: 1;
+    color: #000000;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.actions-ressource {
+    display: flex;
+    gap: 5px;
+}
+
+.btn-voir-ressource,
+.btn-telecharger-ressource {
+    background: none;
+    border: none;
+    padding: 6px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #133ebe;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-voir-ressource:hover {
+    background: rgba(19, 62, 190, 0.1);
+    color: #133ebe;
+}
+
+.btn-telecharger-ressource:hover {
+    background: rgba(28, 200, 138, 0.1);
+    color: #1cc88a;
+}
+
+.aucune-ressource {
+    color: #7f8c8d;
+    font-style: italic;
+    text-align: center;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    border: 2px dashed #e3e6f0;
+}
+
+/* Chargement et erreurs */
+.chargement-contenu {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.spinner-chargement {
+    font-size: 2rem;
+    color: #133ebe;
+    margin-bottom: 15px;
+    animation: spin 1.5s linear infinite;
+}
+
+.etat-erreur {
+    text-align: center;
+    padding: 60px 20px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.etat-erreur i {
+    font-size: 2.5rem;
+    color: #e74c3c;
+    margin-bottom: 20px;
+}
+
+.etat-erreur h3 {
+    color: #7f8c8d;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.etat-erreur p {
+    color: #7f8c8d;
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+}
+
+.btn-secondaire {
+    background: #133ebe;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    font-weight: 600;
+}
+
+.btn-secondaire:hover {
+    background: #2e59d9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(19, 62, 190, 0.3);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes spin {
+    from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Styles pour les actions de l'en-tête */
+.actions-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Bouton Retour à la bibliothèque */
+.btn-retour-biblio {
+    background: linear-gradient(135deg, #133ebe, #0d2e8a);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(19, 62, 190, 0.3);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.btn-retour-biblio:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(19, 62, 190, 0.4);
+    background: linear-gradient(135deg, #0d2e8a, #133ebe);
+}
+
+.btn-retour-biblio:active {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 10px rgba(19, 62, 190, 0.3);
+}
+
+/* Ajustement responsive pour le header */
+@media (max-width: 768px) {
+    .header-mes-cours {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+        padding: 20px;
+    }
+    
+    .titre-mes-cours {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .actions-header {
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+    }
+    
+    .btn-retour-biblio {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .nombre-cours {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* ===== NOUVEAUX STYLES POUR LA GRILLE 2 COLONNES ===== */
+
+/* Grille 2 colonnes */
+.grille-2-colonnes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+    gap: 25px;
+}
+
+@media (max-width: 992px) {
+    .grille-2-colonnes {
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .grille-2-colonnes {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Stats séparées TP/Leçons */
+.stats-separees {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 15px 0;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    border-left: 4px solid var(--couleur-accent, #4e73df);
+}
+
+.stat-categorie {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 0;
+}
+
+.stat-categorie i {
+    font-size: 1.2em;
+    width: 30px;
+    text-align: center;
+    color: var(--couleur-principale, #133ebe);
+}
+
+.stat-categorie:nth-child(1) i { /* Leçons */
+    color: var(--couleur-principale, #133ebe);
+}
+
+.stat-categorie:nth-child(2) i { /* TP */
+    color: var(--couleur-success, #1cc88a);
+}
+
+.stat-categorie:nth-child(3) i { /* Ressources */
+    color: var(--couleur-licence3, #fa9016);
+}
+
+.stat-info {
+    flex: 1;
+}
+
+.stat-info strong {
+    display: block;
+    font-size: 0.9em;
+    color: var(--couleur-texte-principal, #000000);
+    margin-bottom: 2px;
+}
+
+.stat-info span {
+    font-size: 0.85em;
+    color: var(--couleur-texte-secondaire, #7f8c8d);
+}
+
+/* Styles pour les TP dans le détail */
+.tp-container {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+    border-left: 5px solid var(--couleur-success, #1cc88a);
+}
+
+.tp-container h3 {
+    color: var(--couleur-success, #1cc88a);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgba(28, 200, 138, 0.2);
+}
+
+.liste-tp {
+    display: grid;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.carte-tp {
+    background: rgba(28, 200, 138, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    border-left: 4px solid var(--couleur-success, #1cc88a);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(28, 200, 138, 0.1);
+}
+
+.carte-tp:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(28, 200, 138, 0.1);
+    background: white;
+}
+
+.header-tp {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.header-tp h4 {
+    margin: 0;
+    color: var(--couleur-success, #1cc88a);
+    flex: 1;
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.badge-tp {
+    background: var(--couleur-success, #1cc88a);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.description-tp {
+    color: var(--couleur-texte-secondaire, #7f8c8d);
+    line-height: 1.6;
+    margin-bottom: 20px;
+    font-style: italic;
+    border-left: 3px solid rgba(28, 200, 138, 0.3);
+    padding-left: 15px;
+}
+
+/* Style pour les leçons dans le détail */
+.chapitres-container {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+}
+
+.chapitres-container h3 {
+    color: var(--couleur-principale, #133ebe);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--couleur-border, #e3e6f0);
+}
+
+.liste-chapitres {
+    display: grid;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.carte-chapitre {
+    background: var(--couleur-barre-laterale, #ffffff);
+    border-radius: 12px;
+    padding: 20px;
+    border-left: 4px solid var(--couleur-secondaire, #2e59d9);
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.carte-chapitre:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    background: white;
+}
+
+/* Animation pour les cartes */
+.carte-cours {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.carte-cours:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* Ajustement responsive */
+@media (max-width: 576px) {
+    .stats-separees {
+        padding: 10px;
+    }
+    
+    .stat-categorie {
+        padding: 6px 0;
+    }
+    
+    .grille-2-colonnes {
+        gap: 15px;
+    }
+    
+    .tp-container,
+    .chapitres-container {
+        padding: 15px;
+    }
+    
+    .header-tp,
+    .header-chapitre {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* Indicateur de type sur les cartes */
+.badge-type {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    z-index: 2;
+}
+
+.badge-type.lecon {
+    background: var(--couleur-principale, #133ebe);
+    color: white;
+}
+
+.badge-type.tp {
+    background: var(--couleur-success, #1cc88a);
+    color: white;
+}
+
+/* ===== GRILLE 3 COLONNES ===== */
+.grille-3-colonnes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+@media (max-width: 1200px) {
+    .grille-3-colonnes {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 18px;
+    }
+}
+
+@media (max-width: 992px) {
+    .grille-3-colonnes {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 16px;
+    }
+    
+    /* Ajustement des cartes pour 3 colonnes */
+    .carte-cours {
+        min-height: 380px;
+    }
+    
+    .corps-carte {
+        padding: 18px;
+    }
+    
+    .corps-carte h3 {
+        font-size: 1.15rem;
+        margin-bottom: 12px;
+    }
+    
+    .description-cours {
+        font-size: 0.9rem;
+        min-height: 50px;
+        margin-bottom: 15px;
+    }
+    
+    .stats-separees {
+        padding: 12px;
+        gap: 10px;
+        margin: 12px 0;
+    }
+    
+    .stat-categorie i {
+        font-size: 1rem;
+        width: 25px;
+    }
+    
+    .stat-info strong {
+        font-size: 0.8rem;
+    }
+    
+    .stat-info span {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .grille-3-colonnes {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 15px;
+    }
+    
+    .carte-cours {
+        min-height: 360px;
+    }
+    
+    .en-tete-carte {
+        height: 80px;
+    }
+    
+    .en-tete-carte i {
+        font-size: 2rem;
+    }
+    
+    .corps-carte {
+        padding: 15px;
+    }
+    
+    .actions-cours {
+        padding: 0 15px 15px;
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .btn-action {
+        padding: 10px 0;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .grille-3-colonnes {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .carte-cours {
+        min-height: auto;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+}
+
+/* Ajustement des boutons favoris pour les cartes plus petites */
+.header-carte h3 {
+    padding-right: 35px;
+    font-size: 1.1rem;
+    line-height: 1.2;
+}
+
+.btn-favori {
+    width: 30px;
+    height: 30px;
+    font-size: 0.9rem;
+}
+
+/* Amélioration responsive pour les badges */
+.badge-perso {
+    font-size: 0.7rem;
+    padding: 3px 8px;
+    margin-bottom: 8px;
+}
+
+/* Ajustement des statistiques pour 3 colonnes */
+.stats-separees {
+    background: rgba(19, 62, 190, 0.03);
+    border-left: 3px solid var(--couleur-principale);
+}
+
+/* Animation plus douce pour les cartes */
+.carte-cours {
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.carte-cours:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Optimisation du texte pour 3 colonnes */
+.description-cours {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-height: 60px;
+}
+
+/* Ajustement du titre des niveaux pour plus d'espace */
+.titre-niveau {
+    font-size: 1.3rem;
+    margin: 0;
+}
+
+.badge-nombre {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+}
+
+/* Espacement entre les sections de niveau */
+.niveau-section {
+    margin-bottom: 30px;
+}
+
+.en-tete-niveau {
+    margin-bottom: 20px;
+    padding-bottom: 12px;
 }
